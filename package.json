@@ -1,0 +1,20 @@
+{
+  "name": "vastworld",
+  "version": "1.0.0",
+  "description": "",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-sass": "^4.1.0",
+    "gulp-plumber": "^1.2.1"
+  },
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  },
+  "scripts": {
+    "gulp": "gulp" 
+ },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

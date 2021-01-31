@@ -12,11 +12,43 @@
 	width: calc(100% - 300px);
 }
 
+@mixin mq($breakpoint: md) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
+
+//max
+@mixin mq-down($breakpoint: md) {
+	@media #{map-get($breakpoint-down, $breakpoint)} {
+		@content;
+	}
+}
+
+//min
+@mixin mq-up($breakpoint: md) {
+	@media #{map-get($breakpoint-up, $breakpoint)} {
+		@content;
+	}
+}
+
+//max-width,min-width
 $breakpoints: (
-	"sm": "screen and (min-width: 400px)",
-	"md": "(max-width: 1024px) and (min-width: 768px)",
-	"lg": "screen and (max-width: 1000px)",
-	"xl": "screen and (min-width: 1200px)",
+	"md": "(max-width: 1440px) and (min-width: 1024px)",
+) !default;
+
+//max-width
+$breakpoint-down: (
+	"xs": "screen and (max-width: 425px)",
+	"sm": "screen and (max-width: 768px)",
+	"md": "screen and (max-width: 1024px)",
+) !default;
+
+//min-width
+$breakpoint-up: (
+	"xs": "screen and (min-width: 426px)",
+	"sm": "screen and (min-width: 767px)",
+	"md": "screen and (min-width: 1441px)",
 ) !default;
 
 /*============./変数群============*/
@@ -38,6 +70,88 @@ a {
 	padding-top: 50px;
 	background-color: #f5f5f5;
 }
+
+/*=============================
+hamburger
+=============================*/
+.hamburger {
+	position: relative;
+	width: 33px;
+	height: 31px;
+	cursor: pointer;
+	margin-left: 10px;
+}
+.hamburger span {
+	position: absolute;
+	left: 0;
+	width: 100%;
+	height: 4px;
+	background-color: #fff;
+	border-radius: 4px;
+}
+.hamburger,
+.hamburger span {
+	display: inline-block;
+	transition: all 0.5s;
+	box-sizing: border-box;
+}
+.hamburger span:nth-of-type(1) {
+	top: 0;
+}
+.hamburger span:nth-of-type(2) {
+	top: 14px;
+}
+.hamburger span:nth-of-type(3) {
+	bottom: 0;
+}
+
+.hamburger.active {
+	-webkit-transform: rotate(360deg);
+	transform: rotate(360deg);
+}
+.hamburger.active span:nth-of-type(1) {
+	-webkit-transform: translateY(14px) rotate(-45deg);
+	transform: translateY(14px) rotate(-45deg);
+}
+.hamburger.active span:nth-of-type(2) {
+	-webkit-transform: translateY(0) rotate(45deg);
+	transform: translateY(0) rotate(45deg);
+}
+.hamburger.active span:nth-of-type(3) {
+	opacity: 0;
+}
+
+.menu.open {
+	top: 220px;
+	transition-duration: 0.5s;
+}
+
+.menu {
+	display: flex;
+	background-color: #f9f9f9;
+	width: 100%;
+	height: 100%;
+	top: -830px;
+	position: fixed;
+	transition-duration: 0.5s;
+}
+
+.menu ul {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+	margin: 100px auto 0;
+	width: 96%;
+}
+
+.menu ul .p-header__item {
+	font-size: 25px;
+}
+
+.menu ul .p-header__item + .p-header__item {
+	margin-top: 30px;
+}
+
 /*============./global============*/
 
 /*============header============*/
@@ -50,7 +164,9 @@ a {
 		.p-header__title {
 			display: flex;
 			justify-content: center;
-			margin: 20px 0;
+			padding: 20px 0;
+			z-index: 9999;
+			background-color: #fff;
 			a {
 				.p-header__logo {
 					max-width: 400px;
@@ -64,8 +180,12 @@ a {
 			display: flex;
 			justify-content: center;
 			align-items: center;
+			z-index: 9998;
 			.p-header__list {
 				display: flex;
+				@include mq-down(sm) {
+					display: none;
+				}
 				.p-header__item {
 					a {
 						color: #fff;
@@ -74,6 +194,23 @@ a {
 				}
 				.p-header__item + .p-header__item {
 					margin-left: 40px;
+				}
+			}
+			@include mq-up(sm) {
+				.p-header__spList {
+					display: none;
+				}
+			}
+			@include mq-down(sm) {
+				.p-header__spList {
+					display: flex;
+					align-items: center;
+					.p-header__item {
+						a {
+							color: #fff;
+							font-size: 22px;
+						}
+					}
 				}
 			}
 		}
@@ -85,106 +222,266 @@ a {
 
 /*============./category============*/
 
+/*============pickup============*/
 .l-pickup {
 	.l-inner {
 		@include inner;
 		margin: auto;
-		@media (max-width: 1024px) and (min-width: 426px) {
-			.l-pickup__post {
-				width: 33.3%;
-				color: #333;
-				background-color: #fff;
-				.l-pickup__image__sumbnails1 {
-					color: #fff;
-					padding: calc(172 / 300 * 100%) 20px 0;
-					background: url(../img/nakamura5.jpg);
-					background-position: center center;
-					background-size: cover;
-				}
-				.l-pickup__image__sumbnails2 {
-					color: #fff;
-					padding: calc(172 / 300 * 100%) 20px 0;
-					background: url(../img/nakamura6.jpg);
-					background-position: center center;
-					background-size: cover;
-				}
-				.l-pickup__image__sumbnails3 {
-					color: #fff;
-					padding: calc(172 / 300 * 100%) 20px 0;
-					background: url(../img/nakamura7.jpg);
-					background-position: center center;
-					background-size: cover;
-				}
-				.l-pickup__discription {
-					padding: 10px 30px;
-					font-size: 20px;
-				}
-			}
+		@include mq-down() {
+			width: 96%;
 		}
-		@media (min-width: 1025px) {
-			.l-pickup__post {
-				width: 475px;
-				color: #333;
-				background-color: #fff;
-				.l-pickup__image__sumbnails1 {
-					color: #fff;
-					padding: calc(172 / 300 * 100%) 20px 0;
-					background: url(../img/nakamura5.jpg);
-					background-position: center center;
-					background-size: cover;
-				}
-				.l-pickup__image__sumbnails2 {
-					color: #fff;
-					padding: calc(172 / 300 * 100%) 20px 0;
-					background: url(../img/nakamura6.jpg);
-					background-position: center center;
-					background-size: cover;
-				}
-				.l-pickup__image__sumbnails3 {
-					color: #fff;
-					padding: calc(172 / 300 * 100%) 20px 0;
-					background: url(../img/nakamura7.jpg);
-					background-position: center center;
-					background-size: cover;
-				}
-				.l-pickup__discription {
-					padding: 10px 30px;
-					font-size: 20px;
-				}
-			}
-		}
-		.l-pickup__post + .l-pickup__post {
-			margin-left: 20px;
+		@include mq-down(sm) {
+			flex-direction: column;
 		}
 	}
 }
 
+.l-pickup {
+	.l-pickup__post {
+		color: #333;
+		background-color: #fff;
+		.l-pickup__image__sumbnails1 {
+			color: #fff;
+			padding: calc(172 / 300 * 100%) 20px 0;
+			background: url(../img/nakamura5.jpg);
+			background-position: center center;
+			background-size: cover;
+		}
+		.l-pickup__image__sumbnails2 {
+			color: #fff;
+			padding: calc(172 / 300 * 100%) 20px 0;
+			background: url(../img/nakamura6.jpg);
+			background-position: center center;
+			background-size: cover;
+		}
+		.l-pickup__image__sumbnails3 {
+			color: #fff;
+			padding: calc(172 / 300 * 100%) 20px 0;
+			background: url(../img/nakamura7.jpg);
+			background-position: center center;
+			background-size: cover;
+		}
+		@include mq-down(sm) {
+			.l-pickup__image__sumbnails1 {
+				color: #fff;
+				padding: calc(102 / 300 * 100%) 20px 0;
+				background: url(../img/nakamura5.jpg);
+				background-position: center center;
+				background-size: cover;
+			}
+			.l-pickup__image__sumbnails2 {
+				color: #fff;
+				padding: calc(102 / 300 * 100%) 20px 0;
+				background: url(../img/nakamura6.jpg);
+				background-position: center center;
+				background-size: cover;
+			}
+			.l-pickup__image__sumbnails3 {
+				color: #fff;
+				padding: calc(102 / 300 * 100%) 20px 0;
+				background: url(../img/nakamura7.jpg);
+				background-position: center center;
+				background-size: cover;
+			}
+			.l-pickup__discription {
+				padding: 10px 30px;
+				font-size: 20px;
+				height: 150px;
+			}
+		}
+		.l-pickup__discription {
+			padding: 10px 30px;
+			font-size: 20px;
+		}
+	}
+	@include mq() {
+		.l-pickup__post {
+			width: 33.3%;
+		}
+	}
+	@include mq-up() {
+		.l-pickup__post {
+			width: 475px;
+		}
+	}
+	@include mq-down(sm) {
+		.l-pickup__post {
+			width: 100%;
+		}
+	}
+
+	.l-pickup__post + .l-pickup__post {
+		margin-left: 20px;
+		@include mq-down(sm) {
+			margin: 30px 0 0;
+		}
+	}
+}
+/*============./pickup============*/
+
+/*============container============*/
 .l-container {
 	.l-inner {
 		@include inner;
 		margin: 60px auto 0;
-		.l-container__postWrap {
+		@include mq-down() {
+			flex-direction: column;
+			width: 96%;
+		}
+	}
+}
+/*============./container============*/
+
+/*============postWrap============*/
+.l-container__postWrap {
+	display: flex;
+	flex-wrap: wrap;
+	width: 70%;
+	height: 100%;
+	@include mq-down() {
+		width: 100%;
+	}
+	@include mq-down(sm) {
+		flex-direction: column;
+	}
+	.l-container__post {
+		background-color: #fff;
+		width: calc(50% - 15px);
+		@include mq-down(sm) {
+			width: 100%;
+		}
+		a {
+			display: block;
+			.l-pickup__image__sumbnails3 {
+				color: #fff;
+				padding: calc(172 / 300 * 100%) 20px 0;
+				background: url(../img/nakamura5.jpg);
+				background-position: center center;
+				background-size: cover;
+			}
+		}
+		a {
+			display: block;
+			.l-pickup__image__sumbnails3 {
+				color: #fff;
+				padding: calc(172 / 300 * 100%) 20px 0;
+				background: url(../img/nakamura6.jpg);
+				background-position: center center;
+				background-size: cover;
+			}
+		}
+		a {
+			display: block;
+			.l-pickup__image__sumbnails3 {
+				color: #fff;
+				padding: calc(172 / 300 * 100%) 20px 0;
+				background: url(../img/nakamura7.jpg);
+				background-position: center center;
+				background-size: cover;
+			}
+		}
+		.l-container__date {
+			padding-top: 20px;
 			display: flex;
-			flex-wrap: wrap;
-			width: 70%;
-			height: 100%;
-			.l-container__post {
-				background-color: #fff;
-				width: calc(50% - 15px);
+			align-items: center;
+			justify-content: center;
+		}
+		.l-container__postTitle {
+			padding: 20px 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 25px;
+		}
+		.l-container__discription {
+			padding: 20px;
+			font-size: 20px;
+			height: 200px;
+		}
+	}
+	.l-container__post:nth-child(2n) {
+		margin-left: 30px;
+		@include mq-down(sm) {
+			margin: 30px 0 0;
+		}
+	}
+	.l-container__post:nth-child(n + 3) {
+		margin-top: 30px;
+	}
+}
+/*============./postWrap============*/
+
+/*============sidebar============*/
+.l-sidebar {
+	width: 30%;
+	margin-left: 30px;
+	color: #808080;
+	@include mq-down() {
+		width: 100%;
+		margin: 30px 0 0;
+	}
+}
+
+.l-sidebar__inner {
+	display: flex;
+	flex-direction: column;
+	section + section {
+		margin-top: 30px;
+	}
+	.l-sidebar__profile {
+		background-color: #fff;
+		padding: 20px;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+		.l-sidebar__profileImg {
+			width: 200px;
+			img {
+				border-radius: 50%;
+			}
+		}
+		.l-sidebar__name {
+			display: flex;
+			justify-content: center;
+			font-size: 25px;
+			margin-top: 20px;
+		}
+		.l-sidebar__discription {
+			display: flex;
+			justify-content: center;
+			font-size: 20px;
+			margin-top: 20px;
+		}
+	}
+	.l-sidebar__pickup {
+		background-color: #fff;
+		.l-pickup__postWrap {
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+			.c-heading {
+				@include heading;
+			}
+			.l-pickup__post {
+				margin: 20px auto 0;
+				width: 90%;
 				a {
 					display: block;
-					.l-pickup__image__sumbnails3 {
-						color: #fff;
+					.l-pickup__image__sumbnails1 {
 						padding: calc(172 / 300 * 100%) 20px 0;
 						background: url(../img/nakamura5.jpg);
 						background-position: center center;
 						background-size: cover;
 					}
+					.l-pickup__discription {
+						padding: 10px 0;
+						font-size: 20px;
+					}
 				}
 				a {
 					display: block;
-					.l-pickup__image__sumbnails3 {
-						color: #fff;
+					.l-pickup__image__sumbnails2 {
 						padding: calc(172 / 300 * 100%) 20px 0;
 						background: url(../img/nakamura6.jpg);
 						background-position: center center;
@@ -194,143 +491,36 @@ a {
 				a {
 					display: block;
 					.l-pickup__image__sumbnails3 {
-						color: #fff;
 						padding: calc(172 / 300 * 100%) 20px 0;
 						background: url(../img/nakamura7.jpg);
 						background-position: center center;
 						background-size: cover;
 					}
 				}
-				.l-container__date {
-					padding-top: 20px;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-				}
-				.l-container__postTitle {
-					padding: 20px 0;
-					display: flex;
-					align-items: center;
-					justify-content: center;
-					font-size: 25px;
-				}
-				.l-container__discription {
-					padding: 20px;
-					font-size: 20px;
-					height: 200px;
-				}
-			}
-			.l-container__post:nth-child(2n) {
-				margin-left: 30px;
-			}
-			.l-container__post:nth-child(n + 3) {
-				margin-top: 30px;
 			}
 		}
-
-		.l-sidebar {
-			width: 30%;
-			margin-left: 30px;
-			color: #808080;
+	}
+	.l-sidebar__archive {
+		background-color: #fff;
+		.c-heading {
+			@include heading;
 		}
-		.l-sidebar__inner {
-			display: flex;
-			flex-direction: column;
-			section + section {
-				margin-top: 30px;
-			}
-			.l-sidebar__profile {
-				background-color: #fff;
-				padding: 20px;
-				display: flex;
-				flex-direction: column;
-				justify-content: center;
-				align-items: center;
-				.l-sidebar__profileImg {
-					width: 200px;
-					img {
-						border-radius: 50%;
-					}
-				}
-				.l-sidebar__name {
-					display: flex;
-					justify-content: center;
-					font-size: 25px;
-					margin-top: 20px;
-				}
-				.l-sidebar__discription {
-					display: flex;
-					justify-content: center;
-					font-size: 20px;
-					margin-top: 20px;
-				}
-			}
-			.l-sidebar__pickup {
-				background-color: #fff;
-				.l-pickup__postWrap {
-					display: flex;
-					flex-direction: column;
-					justify-content: center;
-					.c-heading {
-						@include heading;
-					}
-					.l-pickup__post {
-						margin: 20px auto 0;
-						width: 90%;
-						a {
-							display: block;
-							.l-pickup__image__sumbnails1 {
-								padding: calc(172 / 300 * 100%) 20px 0;
-								background: url(../img/nakamura5.jpg);
-								background-position: center center;
-								background-size: cover;
-							}
-							.l-pickup__discription {
-								padding: 10px 0;
-								font-size: 20px;
-							}
-						}
-						a {
-							display: block;
-							.l-pickup__image__sumbnails2 {
-								padding: calc(172 / 300 * 100%) 20px 0;
-								background: url(../img/nakamura6.jpg);
-								background-position: center center;
-								background-size: cover;
-							}
-						}
-						a {
-							display: block;
-							.l-pickup__image__sumbnails3 {
-								padding: calc(172 / 300 * 100%) 20px 0;
-								background: url(../img/nakamura7.jpg);
-								background-position: center center;
-								background-size: cover;
-							}
-						}
-					}
-				}
-			}
-			.l-sidebar__archive {
-				background-color: #fff;
-				.c-heading {
-					@include heading;
-				}
-				.l-sidebar__archiveList {
-					margin: 20px;
-					.l-sidebar__month {
-						padding: 15px 10px;
-						line-height: 1;
-						border-bottom: solid 1px #d3d3d3;
-						a {
-							padding-left: 5px;
-						}
-					}
+		.l-sidebar__archiveList {
+			margin: 20px;
+			.l-sidebar__month {
+				padding: 15px 10px;
+				line-height: 1;
+				border-bottom: solid 1px #d3d3d3;
+				a {
+					padding-left: 5px;
 				}
 			}
 		}
 	}
 }
+/*============./sidebar============*/
+
+/*============footer============*/
 footer {
 	margin-top: 50px;
 	padding: 20px;
@@ -344,3 +534,4 @@ footer {
 		}
 	}
 }
+/*============./footer============*/

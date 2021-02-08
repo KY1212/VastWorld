@@ -2,11 +2,11 @@
 function read_assets() {
   wp_enqueue_style(
     'reset-style',
-    get_stylesheet_directory_uri().'/assets/Foundation/reset.css'
+    get_stylesheet_directory_uri().'/assets/css/reset.css'
   );
   wp_enqueue_style(
     'main-style',
-    get_stylesheet_directory_uri().'/assets/Foundation/style.css'
+    get_stylesheet_directory_uri().'/assets/css/style.css'
   );
   wp_enqueue_script(
     'jquery',
@@ -18,33 +18,7 @@ function read_assets() {
     get_theme_file_uri().'/assets/js/index.js',
     array('jquery'),true
   );
-
 }
-
-//WPの不要なクラスを除去
-function remove_menu_id( $id ){
-	return $id = array();
-}
-add_filter('nav_menu_item_id', 'remove_menu_id', 10);
-
-function remove_menu_class( $classes ){
-	return $classes = array();
-}
-add_filter('nav_menu_css_class', 'remove_menu_class', 10, 2);
-
-function remove_menu_aria_current( $atts, $item, $args ){
-	unset ( $atts['aria-current'] );
-	return $atts;
-}
-add_filter('nav_menu_link_attributes', 'remove_menu_aria_current', 11, 5);
-
-//カスタムメニューに任意のli要素を付与
-function add_slug_nav_menu_css( $classes, $item ) {
-  $classes[] = esc_attr( 'p-header__item' . $item->attr_title );
-  return $classes;
-}
-add_filter( 'nav_menu_css_class', 'add_slug_nav_menu_css', 10, 2 );
-
 
 function my_delete_local_jquery() {
   wp_deregister_script('jquery');
@@ -125,19 +99,6 @@ function wp_menu_optimization($menu) {
   return preg_replace(array( '#^<ul[^>]*>#', '#</ul>$#' ), '', $menu);
 }
 
-// サイドバーウィジェット
-function widget() {
-register_sidebar( array(
-  'name' => __( 'Side Widget' ),
-  'id' => 'side-widget',
-  'before_widget' => '<li class="widget-container">',
-  'after_widget' => '</li>',
-  'before_title' => '<h3>',
-  'after_title' => '</h3>',
-) );
-}
-
-
 function cancel_auto_paragraph() {
   remove_filter('the_title', 'wptexturize');
   remove_filter('the_content', 'wptexturize');
@@ -167,7 +128,6 @@ function init() {
   wp_active_function();
   hooks();
   cancel_auto_paragraph();
-  widget();
 }
 
 init();

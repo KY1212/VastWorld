@@ -11,7 +11,7 @@
 		</section>
 		<section class="p-sidebar__pickup">
 			<div class="p-pickup__postWrap">
-        <h3 class="c-heading">おすすめ記事</h3>
+        <h3 class="c-heading">こんな記事もあります</h3>
         <?php
           $the_query = sub_loop(3);
           $counter = '';

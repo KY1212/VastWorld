@@ -17,22 +17,25 @@
 						</h1>
 					</a>
 				</div>
-          <?php
-            wp_nav_menu(array(
-              'theme_location' => 'global',
-							'container_class' => 'p-header__nav',
-              'menu_class' => 'p-header__list',
-            ));
-          ?>
-
-						<!-- <ul class="p-header__spList">
-							<li class="p-header__item"><a>MENU</a></li>
-							<div class="hamburger">
-								<span></span>
-								<span></span>
-								<span></span>
-							</div>
-						</ul> -->
+				<div class="p-header__nav">
+					<ul class="p-header__list">
+						<?php
+							wp_nav_menu(array(
+								'theme_location' => 'global',
+								'menu_class' => 'p-header__list',
+								'container' => false
+							));
+						?>
+					</ul>
+					<ul class="p-header__spList">
+						<p class="p-header__item">MENU</p>
+						<div class="hamburger">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</ul>
+				</div>
 					<!-- <ul class="p-header__list">
 						<li class="p-header__item">
 							<a href="./category.html">Programing</a>

@@ -45,6 +45,10 @@ function add_slug_nav_menu_css( $classes, $item ) {
 }
 add_filter( 'nav_menu_css_class', 'add_slug_nav_menu_css', 10, 2 );
 
+//ピックアップ記事の設定
+register_nav_menus( array(
+	'pickup' => 'ピックアップ',
+) );
 
 function my_delete_local_jquery() {
   wp_deregister_script('jquery');

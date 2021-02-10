@@ -2,6 +2,10 @@
 /*============変数群============*/
 /*============./変数群============*/
 /*============global============*/
+body {
+  background-color: #f5f5f5;
+}
+
 img {
   width: 100%;
   height: auto;
@@ -15,12 +19,17 @@ a {
 
 .l-main {
   padding-top: 30px;
-  background-color: #f5f5f5;
 }
 
 .c-heading {
-  font-size: 25px;
+  font-size: 18px;
   font-weight: bold;
+}
+
+.c-image {
+  height: 300px;
+  padding: 20px 0;
+  object-fit: contain;
 }
 
 /*=============================
@@ -105,7 +114,7 @@ hamburger
 }
 
 .menu ul .p-header__item {
-  font-size: 25px;
+  font-size: 18px;
 }
 
 .menu ul .p-header__item + .p-header__item {
@@ -146,6 +155,7 @@ header.is-sticky {
   justify-content: center;
   align-items: center;
   z-index: 9998;
+  color: #fff;
 }
 .l-header .p-header__inner .p-header__nav .p-header__list {
   display: flex;
@@ -157,7 +167,7 @@ header.is-sticky {
 }
 .l-header .p-header__inner .p-header__nav .p-header__list .p-header__item a {
   color: #fff;
-  font-size: 22px;
+  font-size: 18px;
 }
 .l-header .p-header__inner .p-header__nav .p-header__list .p-header__item + .p-header__item {
   margin-left: 40px;
@@ -174,7 +184,7 @@ header.is-sticky {
   }
   .l-header .p-header__inner .p-header__nav .p-header__spList .p-header__item a {
     color: #fff;
-    font-size: 22px;
+    font-size: 18px;
   }
 }
 
@@ -208,21 +218,21 @@ header.is-sticky {
 }
 .p-pickup .p-pickup__post .c-pickup__image__sumbnails1 {
   color: #fff;
-  padding: calc(172 / 300 * 100%) 20px 0;
+  padding: calc(132 / 300 * 100%) 20px 0;
   background: url(../img/nakamura5.jpg);
   background-position: center center;
   background-size: cover;
 }
 .p-pickup .p-pickup__post .c-pickup__image__sumbnails2 {
   color: #fff;
-  padding: calc(172 / 300 * 100%) 20px 0;
+  padding: calc(132 / 300 * 100%) 20px 0;
   background: url(../img/nakamura6.jpg);
   background-position: center center;
   background-size: cover;
 }
 .p-pickup .p-pickup__post .c-pickup__image__sumbnails3 {
   color: #fff;
-  padding: calc(172 / 300 * 100%) 20px 0;
+  padding: calc(132 / 300 * 100%) 20px 0;
   background: url(../img/nakamura7.jpg);
   background-position: center center;
   background-size: cover;
@@ -251,13 +261,13 @@ header.is-sticky {
   }
   .p-pickup .p-pickup__post .c-pickup__discription {
     padding: 10px 30px;
-    font-size: 20px;
+    font-size: 18px;
     height: 150px;
   }
 }
 .p-pickup .p-pickup__post .c-pickup__discription {
   padding: 10px 30px;
-  font-size: 20px;
+  font-size: 18px;
 }
 @media screen and (min-width: 1025px) {
   .p-pickup .p-pickup__post {
@@ -315,6 +325,7 @@ header.is-sticky {
   display: flex;
   flex-wrap: wrap;
   width: 820px;
+  margin: 0 0 auto;
 }
 @media screen and (max-width: 1200px) {
   .p-container__postWrap {
@@ -337,6 +348,7 @@ header.is-sticky {
 }
 .p-container__postWrap .p-container__post a {
   display: block;
+  padding: 20px 20px 0;
 }
 .p-container__postWrap .p-container__post a .c-pickup__image__sumbnails3 {
   color: #fff;
@@ -366,22 +378,21 @@ header.is-sticky {
   background-size: cover;
 }
 .p-container__postWrap .p-container__post .c-container__date {
-  padding-top: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 14px;
 }
 .p-container__postWrap .p-container__post .c-container__postTitle {
   padding: 20px 0;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 25px;
+  font-size: 20px;
 }
 .p-container__postWrap .p-container__post .c-container__discription {
   padding: 20px;
-  font-size: 20px;
-  height: 200px;
+  font-size: 18px;
 }
 .p-container__postWrap .p-container__post:nth-child(2n) {
   margin-left: 30px;
@@ -433,13 +444,13 @@ header.is-sticky {
 .p-sidebar__inner .p-sidebar__profile .c-sidebar__name {
   display: flex;
   justify-content: center;
-  font-size: 25px;
+  font-size: 18px;
   margin-top: 20px;
 }
 .p-sidebar__inner .p-sidebar__profile .c-sidebar__discription {
   display: flex;
   justify-content: center;
-  font-size: 20px;
+  font-size: 18px;
   margin-top: 20px;
 }
 .p-sidebar__inner .p-sidebar__pickup {
@@ -451,7 +462,7 @@ header.is-sticky {
   justify-content: center;
 }
 .p-sidebar__inner .p-sidebar__pickup .p-pickup__postWrap .c-heading {
-  font-size: 20px;
+  font-size: 18px;
   display: flex;
   justify-content: center;
   margin-top: 20px;
@@ -476,7 +487,7 @@ header.is-sticky {
 }
 .p-sidebar__inner .p-sidebar__pickup .p-pickup__postWrap .p-pickup__post a .c-pickup__discription {
   padding: 10px 0;
-  font-size: 20px;
+  font-size: 18px;
 }
 .p-sidebar__inner .p-sidebar__pickup .p-pickup__postWrap .p-pickup__post a {
   display: block;
@@ -510,7 +521,7 @@ header.is-sticky {
   background-color: #fff;
 }
 .p-sidebar__inner .p-sidebar__archive .c-heading {
-  font-size: 20px;
+  font-size: 18px;
   display: flex;
   justify-content: center;
   margin-top: 20px;

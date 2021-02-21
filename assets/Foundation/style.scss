@@ -29,7 +29,7 @@
 }
 
 //min
-@mixin mq-up($breakpoint: md) {
+@mixin mq-up($breakpoint: sm) {
 	@media #{map-get($breakpoint-up, $breakpoint)} {
 		@content;
 	}
@@ -57,6 +57,7 @@ $breakpoint-up: (
 /*============./変数群============*/
 
 /*============global============*/
+
 body {
 	background-color: #f5f5f5;
 }
@@ -69,11 +70,18 @@ img {
 
 a {
 	text-decoration: none;
+	list-style: none;
+
 	color: #333;
 }
 
 .l-main {
 	padding-top: 30px;
+}
+
+.p-container {
+	display: flex;
+	flex-direction: column;
 }
 
 .c-heading {
@@ -85,6 +93,54 @@ a {
 	height: 300px;
 	padding: 20px 0;
 	object-fit: contain;
+}
+
+.pagination {
+	margin: 70px auto 0;
+	.list {
+		display: flex;
+		justify-content: center;
+
+		.arrow,
+		li .fas {
+			height: 22px;
+			display: flex;
+			align-items: center;
+			color: #558f54;
+		}
+		.arrow:hover {
+			opacity: 0.8;
+		}
+		.page {
+			width: 22px;
+			height: 22px;
+			.page a {
+				background-color: #558f54;
+				color: #fff;
+				font-size: 12px;
+				width: 22px;
+				height: 22px;
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				border-radius: 50%;
+			}
+			.page a:hover {
+				background-color: #fff;
+				color: #558f54;
+				border: 1px solid #558f54;
+			}
+
+			.page.active a {
+				background-color: #fff;
+				color: #558f54;
+				border: 1px solid #558f54;
+			}
+		}
+		li:not(:first-child) {
+			margin-left: 10px;
+		}
+	}
 }
 
 /*=============================
@@ -250,7 +306,7 @@ header.is-sticky {
 
 /*============pickup============*/
 .p-pickup {
-	.p-inner {
+	.p-pickup__inner {
 		@include c-inner;
 		margin: auto;
 		@include mq-down() {
@@ -263,49 +319,23 @@ header.is-sticky {
 	.p-pickup__post {
 		color: #333;
 		background-color: #fff;
-		.c-pickup__image__sumbnails1 {
+		// width: 475px;
+		.c-pickup__image__sumbnails {
 			color: #fff;
 			padding: calc(132 / 300 * 100%) 20px 0;
-			background: url(../img/nakamura5.jpg);
-			background-position: center center;
-			background-size: cover;
-		}
-		.c-pickup__image__sumbnails2 {
-			color: #fff;
-			padding: calc(132 / 300 * 100%) 20px 0;
-			background: url(../img/nakamura6.jpg);
-			background-position: center center;
-			background-size: cover;
-		}
-		.c-pickup__image__sumbnails3 {
-			color: #fff;
-			padding: calc(132 / 300 * 100%) 20px 0;
-			background: url(../img/nakamura7.jpg);
+			// background: url(../img/nakamura7.jpg);
 			background-position: center center;
 			background-size: cover;
 		}
 		@include mq-down(sm) {
-			.c-pickup__image__sumbnails1 {
+			.c-pickup__image__sumbnails {
 				color: #fff;
 				padding: calc(102 / 300 * 100%) 20px 0;
 				background: url(../img/nakamura5.jpg);
 				background-position: center center;
 				background-size: cover;
 			}
-			.c-pickup__image__sumbnails2 {
-				color: #fff;
-				padding: calc(102 / 300 * 100%) 20px 0;
-				background: url(../img/nakamura6.jpg);
-				background-position: center center;
-				background-size: cover;
-			}
-			.c-pickup__image__sumbnails3 {
-				color: #fff;
-				padding: calc(102 / 300 * 100%) 20px 0;
-				background: url(../img/nakamura7.jpg);
-				background-position: center center;
-				background-size: cover;
-			}
+
 			.c-pickup__discription {
 				padding: 10px 30px;
 				font-size: 18px;
@@ -316,6 +346,9 @@ header.is-sticky {
 			padding: 10px 30px;
 			font-size: 18px;
 		}
+	}
+	.p-pickup__post:not(:nth-child(4n + 1)) {
+		display: none;
 	}
 
 	@include mq-up() {
@@ -336,18 +369,16 @@ header.is-sticky {
 		}
 	}
 }
+
 /*============./pickup============*/
 
 /*============container============*/
-.l-container {
-	margin-top: 30px;
-	.p-inner {
-		margin: 0 auto;
-		@include c-inner;
-		@include mq-down() {
-			flex-direction: column;
-			width: 96%;
-		}
+.p-inner {
+	margin: 30px auto 0;
+	@include c-inner;
+	@include mq-down() {
+		flex-direction: column;
+		width: 96%;
 	}
 }
 
@@ -426,8 +457,8 @@ header.is-sticky {
 			font-size: 20px;
 		}
 		.c-container__discription {
-			padding: 20px;
-			font-size: 18px;
+			padding: 20px 0;
+			font-size: 16px;
 		}
 	}
 	.p-container__post:nth-child(2n) {

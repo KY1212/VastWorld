@@ -6,7 +6,7 @@ function read_assets() {
   );
   wp_enqueue_style(
     'main-style',
-    get_stylesheet_directory_uri().'/assets/Foundation/style.css'
+    get_stylesheet_directory_uri().'/style.css'
   );
   wp_enqueue_script(
     'jquery',
@@ -49,6 +49,53 @@ add_filter( 'nav_menu_css_class', 'add_slug_nav_menu_css', 10, 2 );
 register_nav_menus( array(
 	'pickup' => 'ピックアップ',
 ) );
+
+
+//メニューの出力内容をカスタム
+class Walker_Nav_Menu_Custom extends Walker_Nav_Menu {
+	function start_el( & $output, $item, $depth, $args ) {
+		$indent = ( $depth ) ? str_repeat( "\t", $depth ) : '';
+		$classes = empty( $item->classes ) ? array() : ( array )$item->classes;
+		$classes[] = 'menu-item-' . $item->ID;
+		$class_names = join( ' ', apply_filters( 'nav_menu_css_class', array_filter( $classes ), $item, $args, $depth ) );
+		// 不要なIDを削除してli要素に任意のクラスをつける
+		$id = apply_filters( 'nav_menu_item_id', 'menu-item-' . $item->ID, $item, $args, $depth );
+		$id = $id ? ' id="' . esc_attr( $id ) . '"': '';
+		$class_names = $class_names ? ' class="p-pickup__post"' : '';
+		$output .= $indent . '<li' . $class_names . '>';
+		$atts = array();
+		$atts[ 'title' ] = !empty( $item->attr_title ) ? $item->attr_title : '';
+		$atts[ 'target' ] = !empty( $item->target ) ? $item->target : '';
+		$atts[ 'rel' ] = !empty( $item->xfn ) ? $item->xfn : '';
+		$atts[ 'href' ] = !empty( $item->url ) ? $item->url : '';
+		$atts = apply_filters( 'nav_menu_link_attributes', $atts, $item, $args, $depth );
+		$attributes = '';
+		foreach ( $atts as $attr => $value ) {
+			if ( !empty( $value ) ) {
+				$value = ( 'href' === $attr ) ? esc_url( $value ) : esc_attr( $value );
+				$attributes .= ' ' . $attr . '="' . $value . '"';
+			}
+		}
+		$item_output = $args->before;
+		$item_output .= '<a' . $attributes . '>';
+
+    $article_url = wp_get_attachment_url(get_post_thumbnail_id());
+    $article_bg = "style='background-image:url(" . $article_url . ");'";
+    //記事のサムネイル
+		$item_output .= '<p class="c-pickup__image__sumbnails"' . $article_bg . '>';
+		//タイトルを表示
+		$item_output .= '<p class="c-pickup__title">' . $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after . '</p>';
+
+		$item_output .= '</a>';
+		$item_output .= $args->after;
+		$output .= apply_filters( 'walker_nav_menu_start_el', $item_output, $item, $depth, $args );
+
+	}
+}
+
+
+
+
 
 function my_delete_local_jquery() {
   wp_deregister_script('jquery');

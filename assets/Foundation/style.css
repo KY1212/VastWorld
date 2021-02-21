@@ -14,11 +14,17 @@ img {
 
 a {
   text-decoration: none;
+  list-style: none;
   color: #333;
 }
 
 .l-main {
   padding-top: 30px;
+}
+
+.p-container {
+  display: flex;
+  flex-direction: column;
 }
 
 .c-heading {
@@ -30,6 +36,52 @@ a {
   height: 300px;
   padding: 20px 0;
   object-fit: contain;
+}
+
+.pagination {
+  margin: 70px auto 0;
+}
+.pagination .list {
+  display: flex;
+  justify-content: center;
+}
+.pagination .list .arrow,
+.pagination .list li .fas {
+  height: 22px;
+  display: flex;
+  align-items: center;
+  color: #558f54;
+}
+.pagination .list .arrow:hover {
+  opacity: 0.8;
+}
+.pagination .list .page {
+  width: 22px;
+  height: 22px;
+}
+.pagination .list .page .page a {
+  background-color: #558f54;
+  color: #fff;
+  font-size: 12px;
+  width: 22px;
+  height: 22px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+.pagination .list .page .page a:hover {
+  background-color: #fff;
+  color: #558f54;
+  border: 1px solid #558f54;
+}
+.pagination .list .page .page.active a {
+  background-color: #fff;
+  color: #558f54;
+  border: 1px solid #558f54;
+}
+.pagination .list li:not(:first-child) {
+  margin-left: 10px;
 }
 
 /*=============================
@@ -192,23 +244,23 @@ header.is-sticky {
 /*============category============*/
 /*============./category============*/
 /*============pickup============*/
-.p-pickup .p-inner {
+.p-pickup .p-pickup__inner {
   display: flex;
   width: calc(100% - 350px);
   margin: auto;
 }
-@media screen and (min-width: 1025px) {
-  .p-pickup .p-inner {
+@media screen and (min-width: 767px) {
+  .p-pickup .p-pickup__inner {
     width: 1100px;
   }
 }
 @media screen and (max-width: 1200px) {
-  .p-pickup .p-inner {
+  .p-pickup .p-pickup__inner {
     width: 96%;
   }
 }
 @media screen and (max-width: 768px) {
-  .p-pickup .p-inner {
+  .p-pickup .p-pickup__inner {
     flex-direction: column;
   }
 }
@@ -216,46 +268,17 @@ header.is-sticky {
   color: #333;
   background-color: #fff;
 }
-.p-pickup .p-pickup__post .c-pickup__image__sumbnails1 {
+.p-pickup .p-pickup__post .c-pickup__image__sumbnails {
   color: #fff;
   padding: calc(132 / 300 * 100%) 20px 0;
-  background: url(../img/nakamura5.jpg);
-  background-position: center center;
-  background-size: cover;
-}
-.p-pickup .p-pickup__post .c-pickup__image__sumbnails2 {
-  color: #fff;
-  padding: calc(132 / 300 * 100%) 20px 0;
-  background: url(../img/nakamura6.jpg);
-  background-position: center center;
-  background-size: cover;
-}
-.p-pickup .p-pickup__post .c-pickup__image__sumbnails3 {
-  color: #fff;
-  padding: calc(132 / 300 * 100%) 20px 0;
-  background: url(../img/nakamura7.jpg);
   background-position: center center;
   background-size: cover;
 }
 @media screen and (max-width: 768px) {
-  .p-pickup .p-pickup__post .c-pickup__image__sumbnails1 {
+  .p-pickup .p-pickup__post .c-pickup__image__sumbnails {
     color: #fff;
     padding: calc(102 / 300 * 100%) 20px 0;
     background: url(../img/nakamura5.jpg);
-    background-position: center center;
-    background-size: cover;
-  }
-  .p-pickup .p-pickup__post .c-pickup__image__sumbnails2 {
-    color: #fff;
-    padding: calc(102 / 300 * 100%) 20px 0;
-    background: url(../img/nakamura6.jpg);
-    background-position: center center;
-    background-size: cover;
-  }
-  .p-pickup .p-pickup__post .c-pickup__image__sumbnails3 {
-    color: #fff;
-    padding: calc(102 / 300 * 100%) 20px 0;
-    background: url(../img/nakamura7.jpg);
     background-position: center center;
     background-size: cover;
   }
@@ -269,7 +292,10 @@ header.is-sticky {
   padding: 10px 30px;
   font-size: 18px;
 }
-@media screen and (min-width: 1025px) {
+.p-pickup .p-pickup__post:not(:nth-child(4n + 1)) {
+  display: none;
+}
+@media screen and (min-width: 767px) {
   .p-pickup .p-pickup__post {
     width: 475px;
   }
@@ -290,21 +316,18 @@ header.is-sticky {
 
 /*============./pickup============*/
 /*============container============*/
-.l-container {
-  margin-top: 30px;
-}
-.l-container .p-inner {
-  margin: 0 auto;
+.p-inner {
+  margin: 30px auto 0;
   display: flex;
   width: calc(100% - 350px);
 }
-@media screen and (min-width: 1025px) {
-  .l-container .p-inner {
+@media screen and (min-width: 767px) {
+  .p-inner {
     width: 1100px;
   }
 }
 @media screen and (max-width: 1200px) {
-  .l-container .p-inner {
+  .p-inner {
     flex-direction: column;
     width: 96%;
   }
@@ -391,8 +414,8 @@ header.is-sticky {
   font-size: 20px;
 }
 .p-container__postWrap .p-container__post .c-container__discription {
-  padding: 20px;
-  font-size: 18px;
+  padding: 20px 0;
+  font-size: 16px;
 }
 .p-container__postWrap .p-container__post:nth-child(2n) {
   margin-left: 30px;

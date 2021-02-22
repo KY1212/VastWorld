@@ -4,9 +4,8 @@ single
 */
 get_header(); ?>
 <main class="l-main">
-  <div class="l-container">
 
-    <div class="p-inner">
+    <div class="p-container__inner">
       <div class="p-container__postWrap">
         <?php if(have_posts()): while(have_posts()): the_post(); ?>
         <div class="p-container__post p-single__post">
@@ -26,6 +25,5 @@ get_header(); ?>
       <?php endwhile; endif; ?>
       <?php get_sidebar(); ?>
     </div>
-  <?php get_footer(); ?>
-  </div>
+    <?php get_footer(); ?>
 </main>

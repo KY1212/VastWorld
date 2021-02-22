@@ -79,10 +79,26 @@ class Walker_Nav_Menu_Custom extends Walker_Nav_Menu {
 		$item_output = $args->before;
 		$item_output .= '<a' . $attributes . '>';
 
-    $article_url = wp_get_attachment_url(get_post_thumbnail_id());
-    $article_bg = "style='background-image:url(" . $article_url . ");'";
+    // $article_url = get_the_post_thumbnail_url($item->object_id, 'thumbnail');
+    // $article_bg = "style='background-image:url(". esc_url( $article_url ) .");'";
+    // $item_output = '<p class="c-pickup__image__sumbnails"' . $article_bg . '>';
+
+
+		// $item_output .= get_the_post_thumbnail( $item->object_id, thum - image, array( 'class' => 'thumnail-img' ), array( 'alt' => $item->title ) );
+
+
+    // $item_output .= '<p class="c-pickup__image__sumbnails"' . $thumbnails . '>';
+
+    $article_url = get_the_post_thumbnail_url($item->object_id, 'thumbnail');
+    $article_bg = "style='background-image:url(". esc_url( $article_url ) .");'";
+
+    $article_bg = str_replace('-150x150', '', $article_bg);
+
+
     //記事のサムネイル
-		$item_output .= '<p class="c-pickup__image__sumbnails"' . $article_bg . '>';
+		$item_output .= '<p class="c-pickup__image__thumbnails"' . $article_bg . '>';
+
+
 		//タイトルを表示
 		$item_output .= '<p class="c-pickup__title">' . $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after . '</p>';
 
@@ -93,6 +109,78 @@ class Walker_Nav_Menu_Custom extends Walker_Nav_Menu {
 	}
 }
 
+
+function my_theme_widgets_init() {
+  register_sidebar( array(
+    'name' => 'Main Sidebar',
+    'id' => 'main-sidebar',
+    'before_widget' => '<section id="%1$s" class="my_sidebar">',
+    'after_widget' => '</section>',
+    'before_title' => '<h3 class="sidebar_title">',
+    'after_title'  => '</h3>',
+  ) );
+}
+add_action( 'widgets_init', 'my_theme_widgets_init' );
+
+
+///////////////////////////////////////
+// 自前でプロフィール画像の設定
+///////////////////////////////////////
+//プロフィール画面で設定したプロフィール画像
+if ( !function_exists( 'get_the_author_upladed_avatar_url_demo' ) ):
+function get_the_author_upladed_avatar_url_demo($user_id){
+  if (!$user_id) {
+    $user_id = get_the_posts_author_id();
+  }
+  return esc_html(get_the_author_meta('upladed_avatar', $user_id));
+}
+endif;
+
+//ユーザー情報追加
+add_action('show_user_profile', 'add_avatar_to_user_profile_demo');
+add_action('edit_user_profile', 'add_avatar_to_user_profile_demo');
+if ( !function_exists( 'add_avatar_to_user_profile_demo' ) ):
+function add_avatar_to_user_profile_demo($user) {
+?>
+
+<?php
+}
+endif;
+
+//入力した値を保存する
+add_action('personal_options_update', 'update_avatar_to_user_profile_demo');
+if ( !function_exists( 'update_avatar_to_user_profile_demo' ) ):
+function update_avatar_to_user_profile_demo($user_id) {
+  if ( current_user_can('edit_user',$user_id) ){
+    update_user_meta($user_id, 'upladed_avatar', $_POST['upladed_avatar']);
+  }
+}
+endif;
+
+//プロフィール画像を変更する
+add_filter( 'get_avatar' , 'get_uploaded_user_profile_avatar_demo' , 1 , 5 );
+if ( !function_exists( 'get_uploaded_user_profile_avatar_demo' ) ):
+
+function get_uploaded_user_profile_avatar_demo( $avatar, $id_or_email, $size, $default, $alt ) {
+  if ( is_numeric( $id_or_email ) )
+    $user_id = (int) $id_or_email;
+  elseif ( is_string( $id_or_email ) && ( $user = get_user_by( 'email', $id_or_email ) ) )
+    $user_id = $user->ID;
+  elseif ( is_object( $id_or_email ) && ! empty( $id_or_email->user_id ) )
+    $user_id = (int) $id_or_email->user_id;
+
+  if ( empty( $user_id ) )
+    return $avatar;
+
+  if (get_the_author_upladed_avatar_url_demo($user_id)) {
+    $alt = !empty($alt) ? $alt : get_the_author_meta( 'display_name', $user_id );;
+    $author_class = is_author( $user_id ) ? ' current-author' : '' ;
+    $avatar = "<img alt='" . esc_attr( $alt ) . "' src='" . esc_url( get_the_author_upladed_avatar_url_demo($user_id) ) . "' class='avatar avatar-{$size}{$author_class} photo' height='{$size}' width='{$size}' />";
+  }
+
+  return $avatar;
+}
+endif;
 
 
 

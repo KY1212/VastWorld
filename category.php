@@ -1,37 +1,14 @@
 <?php get_header(); ?>
 <main class="l-main">
-	<!-- pickup -->
-	<div class="p-pickup">
-		<div class="p-inner">
-			<div class="p-pickup__post">
-				<a href="./single.html">
-					<p class="c-pickup__image__sumbnails1"></p>
-					<p class="c-pickup__discription">ピックアップされた投稿記事</p>
-				</a>
-			</div>
-			<div class="p-pickup__post">
-				<a href="./single.html">
-					<p class="c-pickup__image__sumbnails2"></p>
-					<p class="c-pickup__discription">ピックアップされた投稿記事</p>
-				</a>
-			</div>
-			<div class="p-pickup__post">
-				<a href="./single.html">
-					<p class="c-pickup__image__sumbnails3"></p>
-					<p class="c-pickup__discription">ピックアップされた投稿記事</p>
-				</a>
-			</div>
-		</div>
-	</div>
-	<div class="l-container">
-		<div class="p-inner">
-			<div class="p-container__postWrap">
+		<div class="p-container__inner">
+			<div class="p-container">
+				<h3 class="headingTop">
+					<?php single_cat_title(); ?>
+				</h3>
+				<div class="p-container__postWrap">
 				<?php
-					$the_query = sub_loop(9,$paged);
-					$counter = '';
-					if ($the_query->have_posts()) :
-						while ($the_query->have_posts()) : $the_query->the_post();
-						++$counter;
+					if (have_posts()):
+					while (have_posts()):the_post();
 				?>
 				<div class="p-container__post">
 					<a href="<?php the_permalink(); ?>">
@@ -52,9 +29,10 @@
 								}
 							?>
 						</p>
-					</a>
+						</a>
+					</div>
+					<?php endwhile; endif; wp_reset_postdata(); ?>
 				</div>
-				<?php endwhile; endif; wp_reset_postdata(); ?>
 			</div>
 			<?php get_sidebar(); ?>
 		</div>

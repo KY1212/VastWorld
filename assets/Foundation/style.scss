@@ -319,31 +319,24 @@ header.is-sticky {
 	.p-pickup__post {
 		color: #333;
 		background-color: #fff;
-		// width: 475px;
-		.c-pickup__image__sumbnails {
+		.c-pickup__image__thumbnails {
 			color: #fff;
 			padding: calc(132 / 300 * 100%) 20px 0;
-			// background: url(../img/nakamura7.jpg);
 			background-position: center center;
 			background-size: cover;
 		}
+
 		@include mq-down(sm) {
-			.c-pickup__image__sumbnails {
+			.c-pickup__image__thumbnails {
 				color: #fff;
 				padding: calc(102 / 300 * 100%) 20px 0;
 				background: url(../img/nakamura5.jpg);
 				background-position: center center;
 				background-size: cover;
 			}
-
-			.c-pickup__discription {
-				padding: 10px 30px;
-				font-size: 18px;
-				height: 150px;
-			}
 		}
-		.c-pickup__discription {
-			padding: 10px 30px;
+		.c-pickup__title {
+			padding: 15px;
 			font-size: 18px;
 		}
 	}
@@ -365,7 +358,7 @@ header.is-sticky {
 	.p-pickup__post + .p-pickup__post {
 		margin-left: 20px;
 		@include mq-down(sm) {
-			margin: 30px 0 0;
+			margin: 15px 0 0;
 		}
 	}
 }
@@ -373,7 +366,7 @@ header.is-sticky {
 /*============./pickup============*/
 
 /*============container============*/
-.p-inner {
+.p-container__inner {
 	margin: 30px auto 0;
 	@include c-inner;
 	@include mq-down() {
@@ -397,8 +390,8 @@ header.is-sticky {
 .p-container__postWrap {
 	display: flex;
 	flex-wrap: wrap;
-	width: 820px;
-	margin: 0 0 auto;
+	width: 750px;
+	margin: 0;
 
 	@include mq-down() {
 		width: 100%;
@@ -464,11 +457,11 @@ header.is-sticky {
 	.p-container__post:nth-child(2n) {
 		margin-left: 30px;
 		@include mq-down(sm) {
-			margin: 30px 0 0;
+			margin: 15px 0 0;
 		}
 	}
 	.p-container__post:nth-child(n + 3) {
-		margin-top: 30px;
+		margin-top: 15px;
 	}
 }
 /*============./postWrap============*/
@@ -499,9 +492,11 @@ header.is-sticky {
 		justify-content: center;
 		align-items: center;
 		.c-sidebar__profileImg {
-			width: 200px;
 			img {
 				border-radius: 50%;
+				width: 190px;
+				height: 190px;
+				object-fit: cover;
 			}
 		}
 		.c-sidebar__name {

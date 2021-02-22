@@ -268,28 +268,23 @@ header.is-sticky {
   color: #333;
   background-color: #fff;
 }
-.p-pickup .p-pickup__post .c-pickup__image__sumbnails {
+.p-pickup .p-pickup__post .c-pickup__image__thumbnails {
   color: #fff;
   padding: calc(132 / 300 * 100%) 20px 0;
   background-position: center center;
   background-size: cover;
 }
 @media screen and (max-width: 768px) {
-  .p-pickup .p-pickup__post .c-pickup__image__sumbnails {
+  .p-pickup .p-pickup__post .c-pickup__image__thumbnails {
     color: #fff;
     padding: calc(102 / 300 * 100%) 20px 0;
     background: url(../img/nakamura5.jpg);
     background-position: center center;
     background-size: cover;
   }
-  .p-pickup .p-pickup__post .c-pickup__discription {
-    padding: 10px 30px;
-    font-size: 18px;
-    height: 150px;
-  }
 }
-.p-pickup .p-pickup__post .c-pickup__discription {
-  padding: 10px 30px;
+.p-pickup .p-pickup__post .c-pickup__title {
+  padding: 15px;
   font-size: 18px;
 }
 .p-pickup .p-pickup__post:not(:nth-child(4n + 1)) {
@@ -310,24 +305,24 @@ header.is-sticky {
 }
 @media screen and (max-width: 768px) {
   .p-pickup .p-pickup__post + .p-pickup__post {
-    margin: 30px 0 0;
+    margin: 15px 0 0;
   }
 }
 
 /*============./pickup============*/
 /*============container============*/
-.p-inner {
+.p-container__inner {
   margin: 30px auto 0;
   display: flex;
   width: calc(100% - 350px);
 }
 @media screen and (min-width: 767px) {
-  .p-inner {
+  .p-container__inner {
     width: 1100px;
   }
 }
 @media screen and (max-width: 1200px) {
-  .p-inner {
+  .p-container__inner {
     flex-direction: column;
     width: 96%;
   }
@@ -347,8 +342,8 @@ header.is-sticky {
 .p-container__postWrap {
   display: flex;
   flex-wrap: wrap;
-  width: 820px;
-  margin: 0 0 auto;
+  width: 750px;
+  margin: 0;
 }
 @media screen and (max-width: 1200px) {
   .p-container__postWrap {
@@ -422,11 +417,11 @@ header.is-sticky {
 }
 @media screen and (max-width: 768px) {
   .p-container__postWrap .p-container__post:nth-child(2n) {
-    margin: 30px 0 0;
+    margin: 15px 0 0;
   }
 }
 .p-container__postWrap .p-container__post:nth-child(n + 3) {
-  margin-top: 30px;
+  margin-top: 15px;
 }
 
 /*============./postWrap============*/
@@ -458,11 +453,11 @@ header.is-sticky {
   justify-content: center;
   align-items: center;
 }
-.p-sidebar__inner .p-sidebar__profile .c-sidebar__profileImg {
-  width: 200px;
-}
 .p-sidebar__inner .p-sidebar__profile .c-sidebar__profileImg img {
   border-radius: 50%;
+  width: 190px;
+  height: 190px;
+  object-fit: cover;
 }
 .p-sidebar__inner .p-sidebar__profile .c-sidebar__name {
   display: flex;

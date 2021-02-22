@@ -3,11 +3,11 @@
 	<div class="p-pickup">
 		<ul class="p-pickup__inner">
 		<?php
-			$the_query = sub_loop(3,$paged);
+			$the_query = sub_loop(3);
 			$counter = '';
 			if ($the_query->have_posts()) :
 				while ($the_query->have_posts()) : $the_query->the_post();
-						++$counter;
+					++$counter;
 			?>
 			<?php
 				wp_nav_menu(array(
@@ -23,11 +23,11 @@
 		</ul>
 	</div>
 
-		<div class="p-inner">
+		<div class="p-container__inner">
 			<div class="p-container">
 				<div class="p-container__postWrap">
 					<?php
-						$the_query = sub_loop(2,$paged);
+						$the_query = sub_loop(4,$paged);
 						$counter = '';
 						if ($the_query->have_posts()) :
 							while ($the_query->have_posts()) : $the_query->the_post();

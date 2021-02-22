@@ -1,23 +1,25 @@
 <aside class="l-sidebar">
 	<div class="p-sidebar__inner">
+	<?php dynamic_sidebar('main-sidebar'); ?><!-- サイドバーを出力 -->
+
 		<section class="p-sidebar__profile">
 			<div class="c-sidebar__profileImg">
-				<img src="" alt="" />
+				<?php echo get_avatar( get_the_author_id() ); ?>
 			</div>
-			<p class="c-sidebar__name">UserName</p>
+			<p class="c-sidebar__name">
+				<?php the_author_nickname(); ?>
+			</p>
 			<p class="c-sidebar__discription">
-				hello!!Wellcometo my theme!!
+				<?php the_author_meta('user_description'); ?>
 			</p>
 		</section>
 		<section class="p-sidebar__pickup">
 			<div class="p-pickup__postWrap">
         <h3 class="c-heading">こんな記事もあります</h3>
         <?php
-          $the_query = sub_loop(3);
-          $counter = '';
-          if ($the_query->have_posts()) :
-          while ($the_query->have_posts()) : $the_query->the_post();
-            ++$counter;
+					query_posts(array('orderby' => 'rand', 'showposts' => 3));
+					if (have_posts()) :
+					while (have_posts()) : the_post();
         ?>
         <div class="p-pickup__post">
           <?php

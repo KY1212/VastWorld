@@ -1,0 +1,53 @@
+@mixin heading {
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+@mixin c-inner {
+	display: flex;
+	width: calc(100% - 350px);
+	@include mq-up() {
+		width: 1100px;
+	}
+}
+
+@mixin mq($breakpoint: md) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
+
+//max
+@mixin mq-down($breakpoint: md) {
+	@media #{map-get($breakpoint-down, $breakpoint)} {
+		@content;
+	}
+}
+
+//min
+@mixin mq-up($breakpoint: sm) {
+	@media #{map-get($breakpoint-up, $breakpoint)} {
+		@content;
+	}
+}
+
+//max-width,min-width
+$breakpoints: (
+	"md": "(max-width: 1440px) and (min-width: 1024px)",
+) !default;
+
+//max-width
+$breakpoint-down: (
+	"xs": "screen and (max-width: 425px)",
+	"sm": "screen and (max-width: 768px)",
+	"md": "screen and (max-width: 1200px)",
+) !default;
+
+//min-width
+$breakpoint-up: (
+	"xs": "screen and (min-width: 426px)",
+	"sm": "screen and (min-width: 767px)",
+	"md": "screen and (min-width: 1025px)",
+) !default;

@@ -1,12 +1,9 @@
 <?php
 function read_assets() {
+
   wp_enqueue_style(
-    'reset-style',
-    get_stylesheet_directory_uri().'/assets/Foundation/reset.css'
-  );
-  wp_enqueue_style(
-    'main-style',
-    get_stylesheet_directory_uri().'/style.css'
+    'style',
+    get_stylesheet_directory_uri().'/assets/css/style.css'
   );
   wp_enqueue_script(
     'jquery',

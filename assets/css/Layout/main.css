@@ -1,0 +1,189 @@
+/*============pickup============*/
+.p-pickup .p-pickup__inner {
+  display: flex;
+  width: calc(100% - 350px);
+  margin: auto;
+}
+@media screen and (min-width: 767px) {
+  .p-pickup .p-pickup__inner {
+    width: 1100px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .p-pickup .p-pickup__inner {
+    width: 96%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .p-pickup .p-pickup__inner {
+    flex-direction: column;
+  }
+}
+.p-pickup .p-pickup__post {
+  color: #333;
+  background-color: #fff;
+}
+.p-pickup .p-pickup__post .c-pickup__image__thumbnails {
+  color: #fff;
+  padding: calc(132 / 300 * 100%) 20px 0;
+  background-position: center center;
+  background-size: cover;
+}
+@media screen and (max-width: 768px) {
+  .p-pickup .p-pickup__post .c-pickup__image__thumbnails {
+    color: #fff;
+    padding: calc(132 / 300 * 100%) 20px 0;
+    background-position: center center;
+    background-size: cover;
+  }
+}
+.p-pickup .p-pickup__post .c-pickup__title {
+  padding: 15px;
+  font-size: 18px;
+}
+.p-pickup .p-pickup__post:not(:nth-child(4n + 1)) {
+  display: none;
+}
+@media screen and (min-width: 767px) {
+  .p-pickup .p-pickup__post {
+    width: 475px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .p-pickup .p-pickup__post {
+    width: 100%;
+  }
+}
+.p-pickup .p-pickup__post + .p-pickup__post {
+  margin-left: 20px;
+}
+@media screen and (max-width: 768px) {
+  .p-pickup .p-pickup__post + .p-pickup__post {
+    margin: 15px 0 0;
+  }
+}
+
+/*============./pickup============*/
+/*============container============*/
+.p-container__inner {
+  margin: 30px auto 0;
+  display: flex;
+  width: calc(100% - 350px);
+}
+@media screen and (min-width: 767px) {
+  .p-container__inner {
+    width: 1100px;
+  }
+}
+@media screen and (max-width: 1200px) {
+  .p-container__inner {
+    flex-direction: column;
+    width: 96%;
+  }
+}
+
+.column {
+  flex-direction: column;
+}
+
+/*============./container============*/
+/*============postWrap============*/
+.p-container__contentsWrap {
+  width: 70%;
+  height: 100%;
+}
+
+.p-container__postWrap {
+  display: flex;
+  flex-wrap: wrap;
+  width: 750px;
+  margin: 0;
+}
+@media screen and (max-width: 1200px) {
+  .p-container__postWrap {
+    width: 100%;
+  }
+}
+@media screen and (max-width: 768px) {
+  .p-container__postWrap {
+    flex-direction: column;
+  }
+}
+.p-container__postWrap .p-container__post {
+  background-color: #fff;
+  width: calc(50% - 15px);
+}
+@media screen and (max-width: 768px) {
+  .p-container__postWrap .p-container__post {
+    width: 100%;
+  }
+}
+.p-container__postWrap .p-container__post a {
+  display: block;
+  padding: 20px 20px 0;
+}
+.p-container__postWrap .p-container__post a .c-pickup__image__sumbnails3 {
+  color: #fff;
+  padding: calc(172 / 300 * 100%) 20px 0;
+  background: url(../img/nakamura5.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+.p-container__postWrap .p-container__post a {
+  display: block;
+}
+.p-container__postWrap .p-container__post a .c-pickup__image__sumbnails3 {
+  color: #fff;
+  padding: calc(172 / 300 * 100%) 20px 0;
+  background: url(../img/nakamura6.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+.p-container__postWrap .p-container__post a {
+  display: block;
+}
+.p-container__postWrap .p-container__post a .c-pickup__image__sumbnails3 {
+  color: #fff;
+  padding: calc(172 / 300 * 100%) 20px 0;
+  background: url(../img/nakamura7.jpg);
+  background-position: center center;
+  background-size: cover;
+}
+.p-container__postWrap .p-container__post .c-container__date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+}
+.p-container__postWrap .p-container__post .c-container__postTitle {
+  padding: 20px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+}
+.p-container__postWrap .p-container__post .c-container__discription {
+  padding: 20px 0;
+  font-size: 16px;
+}
+.p-container__postWrap .p-container__post:nth-child(2n) {
+  margin-left: 30px;
+}
+@media screen and (max-width: 768px) {
+  .p-container__postWrap .p-container__post:nth-child(2n) {
+    margin: 15px 0 0;
+  }
+}
+.p-container__postWrap .p-container__post:nth-child(n + 3) {
+  margin-top: 15px;
+}
+
+/*============./postWrap============*/
+/*============single============*/
+.p-container__postWrap .p-single__post {
+  width: 100%;
+}
+
+/*============./single============*/
+
+/*# sourceMappingURL=main.css.map */

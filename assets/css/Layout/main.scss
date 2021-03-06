@@ -1,0 +1,168 @@
+@import "../Foundation/mixin.scss";
+
+/*============pickup============*/
+.p-pickup {
+	.p-pickup__inner {
+		@include c-inner;
+		margin: auto;
+		@include mq-down() {
+			width: 96%;
+		}
+		@include mq-down(sm) {
+			flex-direction: column;
+		}
+	}
+	.p-pickup__post {
+		color: #333;
+		background-color: #fff;
+		.c-pickup__image__thumbnails {
+			color: #fff;
+			padding: calc(132 / 300 * 100%) 20px 0;
+			background-position: center center;
+			background-size: cover;
+		}
+
+		@include mq-down(sm) {
+			.c-pickup__image__thumbnails {
+				color: #fff;
+				padding: calc(132 / 300 * 100%) 20px 0;
+				background-position: center center;
+				background-size: cover;
+			}
+		}
+		.c-pickup__title {
+			padding: 15px;
+			font-size: 18px;
+		}
+	}
+	.p-pickup__post:not(:nth-child(4n + 1)) {
+		display: none;
+	}
+
+	@include mq-up() {
+		.p-pickup__post {
+			width: 475px;
+		}
+	}
+	@include mq-down(sm) {
+		.p-pickup__post {
+			width: 100%;
+		}
+	}
+
+	.p-pickup__post + .p-pickup__post {
+		margin-left: 20px;
+		@include mq-down(sm) {
+			margin: 15px 0 0;
+		}
+	}
+}
+
+/*============./pickup============*/
+
+/*============container============*/
+.p-container__inner {
+	margin: 30px auto 0;
+	@include c-inner;
+	@include mq-down() {
+		flex-direction: column;
+		width: 96%;
+	}
+}
+
+.column {
+	flex-direction: column;
+}
+/*============./container============*/
+
+/*============postWrap============*/
+
+.p-container__contentsWrap {
+	width: 70%;
+	height: 100%;
+}
+
+.p-container__postWrap {
+	display: flex;
+	flex-wrap: wrap;
+	width: 750px;
+	margin: 0;
+
+	@include mq-down() {
+		width: 100%;
+	}
+	@include mq-down(sm) {
+		flex-direction: column;
+	}
+	.p-container__post {
+		background-color: #fff;
+		width: calc(50% - 15px);
+		@include mq-down(sm) {
+			width: 100%;
+		}
+		a {
+			display: block;
+			padding: 20px 20px 0;
+			.c-pickup__image__sumbnails3 {
+				color: #fff;
+				padding: calc(172 / 300 * 100%) 20px 0;
+				background: url(../img/nakamura5.jpg);
+				background-position: center center;
+				background-size: cover;
+			}
+		}
+		a {
+			display: block;
+			.c-pickup__image__sumbnails3 {
+				color: #fff;
+				padding: calc(172 / 300 * 100%) 20px 0;
+				background: url(../img/nakamura6.jpg);
+				background-position: center center;
+				background-size: cover;
+			}
+		}
+		a {
+			display: block;
+			.c-pickup__image__sumbnails3 {
+				color: #fff;
+				padding: calc(172 / 300 * 100%) 20px 0;
+				background: url(../img/nakamura7.jpg);
+				background-position: center center;
+				background-size: cover;
+			}
+		}
+		.c-container__date {
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 14px;
+		}
+		.c-container__postTitle {
+			padding: 20px 0;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 20px;
+		}
+		.c-container__discription {
+			padding: 20px 0;
+			font-size: 16px;
+		}
+	}
+	.p-container__post:nth-child(2n) {
+		margin-left: 30px;
+		@include mq-down(sm) {
+			margin: 15px 0 0;
+		}
+	}
+	.p-container__post:nth-child(n + 3) {
+		margin-top: 15px;
+	}
+}
+/*============./postWrap============*/
+
+/*============single============*/
+.p-container__postWrap .p-single__post {
+	width: 100%;
+}
+/*============./single============*/

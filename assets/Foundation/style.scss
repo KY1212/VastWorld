@@ -203,7 +203,7 @@ hamburger
 	background-color: #f9f9f9;
 	width: 100%;
 	height: 100%;
-	top: -830px;
+	top: -1050px;
 	position: fixed;
 	transition-duration: 0.5s;
 }
@@ -329,8 +329,7 @@ header.is-sticky {
 		@include mq-down(sm) {
 			.c-pickup__image__thumbnails {
 				color: #fff;
-				padding: calc(102 / 300 * 100%) 20px 0;
-				background: url(../img/nakamura5.jpg);
+				padding: calc(132 / 300 * 100%) 20px 0;
 				background-position: center center;
 				background-size: cover;
 			}

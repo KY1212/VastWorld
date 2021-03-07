@@ -39,10 +39,10 @@
 								$article_url = wp_get_attachment_url(get_post_thumbnail_id());
 								$article_bg = "style='background-image:url(" . $article_url . ");'";
 							?>
-							<p class="c-container__date"><?php the_time('Y.m.d'); ?></p>
-							<p class="c-container__postTitle"><?php the_title(); ?></p>
+							<p class="p-container__date"><?php the_time('Y.m.d'); ?></p>
+							<p class="p-container__postTitle"><?php the_title(); ?></p>
 							<p class="c-pickup__image__sumbnails3" <?php echo $article_bg; ?>></p>
-							<p class="c-container__discription">
+							<p class="p-container__discription">
 								<?php
 									if(mb_strlen($post->post_content, 'UTF-8')>36){
 										$content= mb_substr($post->post_content, 0, 36, 'UTF-8');

@@ -50,7 +50,10 @@
 				<!-- </nav> -->
 				<div class="menu">
 					<ul>
-						<li class="p-header__item"><a href="">Prrograming</a></li>
+						<li class="p-header__item"><a href="">
+						<i class="fas fa-file-code"></i>
+						Prrograming
+						</a></li>
 						<li class="p-header__item"><a href="">Diary</a></li>
 						<li class="p-header__item"><a href="">Thought</a></li>
 						<li class="p-header__item"><a href="">Contact</a></li>

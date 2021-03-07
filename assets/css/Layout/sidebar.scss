@@ -5,7 +5,6 @@
 	width: 350px;
 	margin-left: 30px;
 	color: #808080;
-
 	@include mq-down() {
 		width: 100%;
 		margin: 30px 0 0;
@@ -25,7 +24,7 @@
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		.c-sidebar__profileImg {
+		.p-sidebar__profileImg {
 			img {
 				border-radius: 50%;
 				width: 190px;
@@ -33,13 +32,13 @@
 				object-fit: cover;
 			}
 		}
-		.c-sidebar__name {
+		.p-sidebar__name {
 			display: flex;
 			justify-content: center;
 			font-size: 18px;
 			margin-top: 20px;
 		}
-		.c-sidebar__discription {
+		.p-sidebar__discription {
 			display: flex;
 			justify-content: center;
 			font-size: 18px;
@@ -60,7 +59,7 @@
 				width: 90%;
 				a {
 					display: block;
-					.c-pickup__image__sumbnails1 {
+					.p-pickup__image__sumbnails1 {
 						padding: calc(172 / 300 * 100%) 20px 0;
 						@include mq-down() {
 							padding: calc(102 / 300 * 100%) 20px 0;
@@ -69,33 +68,9 @@
 						background-position: center center;
 						background-size: cover;
 					}
-					.c-pickup__discription {
+					.p-pickup__discription {
 						padding: 10px 0;
 						font-size: 18px;
-					}
-				}
-				a {
-					display: block;
-					.c-pickup__image__sumbnails2 {
-						padding: calc(172 / 300 * 100%) 20px 0;
-						@include mq-down() {
-							padding: calc(102 / 300 * 100%) 20px 0;
-						}
-						background: url(../img/nakamura6.jpg);
-						background-position: center center;
-						background-size: cover;
-					}
-				}
-				a {
-					display: block;
-					.c-pickup__image__sumbnails3 {
-						padding: calc(172 / 300 * 100%) 20px 0;
-						@include mq-down() {
-							padding: calc(102 / 300 * 100%) 20px 0;
-						}
-						background: url(../img/nakamura7.jpg);
-						background-position: center center;
-						background-size: cover;
 					}
 				}
 			}
@@ -108,7 +83,7 @@
 		}
 		.p-sidebar__archiveList {
 			margin: 20px;
-			.c-sidebar__month {
+			.p-sidebar__month {
 				padding: 15px 10px;
 				line-height: 1;
 				border-bottom: solid 1px #d3d3d3;

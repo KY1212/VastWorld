@@ -3,13 +3,13 @@
 	<?php dynamic_sidebar('main-sidebar'); ?><!-- サイドバーを出力 -->
 
 		<section class="p-sidebar__profile">
-			<div class="c-sidebar__profileImg">
+			<div class="p-sidebar__profileImg">
 				<?php echo get_avatar( get_the_author_id() ); ?>
 			</div>
-			<p class="c-sidebar__name">
+			<p class="p-sidebar__name">
 				<?php the_author_nickname(); ?>
 			</p>
-			<p class="c-sidebar__discription">
+			<p class="p-sidebar__discription">
 				<?php the_author_meta('user_description'); ?>
 			</p>
 		</section>
@@ -27,8 +27,8 @@
             $article_bg = "style='background-image:url(".$article_url.");'";
           ?>
           <a href="<?php the_permalink(); ?>">
-            <p class="c-pickup__image__sumbnails1" <?php echo $article_bg; ?>></p>
-            <p class="c-pickup__discription"><?php echo mb_substr( $post->post_title, 0, 20) . '...'; ?></p>
+            <p class="p-pickup__image__sumbnails1" <?php echo $article_bg; ?>></p>
+            <p class="p-pickup__discription"><?php echo mb_substr( $post->post_title, 0, 20) . '...'; ?></p>
           </a>
         </div>
         <?php endwhile; endif;
@@ -39,31 +39,31 @@
 		<section class="p-sidebar__archive">
 			<h3 class="c-heading">アーカイブ</h3>
 			<ul class="p-sidebar__archiveList">
-				<li class="c-sidebar__month">
+				<li class="p-sidebar__month">
 					<a href=""> 2021年1月 (31) </a>
 				</li>
-				<li class="c-sidebar__month">
+				<li class="p-sidebar__month">
 					<a href=""> 2021年1月 (31) </a>
 				</li>
-				<li class="c-sidebar__month">
+				<li class="p-sidebar__month">
 					<a href=""> 2021年1月 (31) </a>
 				</li>
-				<li class="c-sidebar__month">
+				<li class="p-sidebar__month">
 					<a href=""> 2021年1月 (31) </a>
 				</li>
-				<li class="c-sidebar__month">
+				<li class="p-sidebar__month">
 					<a href=""> 2021年1月 (31) </a>
 				</li>
-				<li class="c-sidebar__month">
+				<li class="p-sidebar__month">
 					<a href=""> 2021年1月 (31) </a>
 				</li>
-				<li class="c-sidebar__month">
+				<li class="p-sidebar__month">
 					<a href=""> 2021年1月 (31) </a>
 				</li>
-				<li class="c-sidebar__month">
+				<li class="p-sidebar__month">
 					<a href=""> 2021年1月 (31) </a>
 				</li>
-				<li class="c-sidebar__month">
+				<li class="p-sidebar__month">
 					<a href=""> 2021年1月 (31) </a>
 				</li>
 			</ul>

@@ -15,22 +15,14 @@
 	.p-pickup__post {
 		color: #333;
 		background-color: #fff;
-		.c-pickup__image__thumbnails {
+		.p-pickup__image__thumbnails {
 			color: #fff;
 			padding: calc(132 / 300 * 100%) 20px 0;
 			background-position: center center;
 			background-size: cover;
 		}
 
-		@include mq-down(sm) {
-			.c-pickup__image__thumbnails {
-				color: #fff;
-				padding: calc(132 / 300 * 100%) 20px 0;
-				background-position: center center;
-				background-size: cover;
-			}
-		}
-		.c-pickup__title {
+		.p-pickup__title {
 			padding: 15px;
 			font-size: 18px;
 		}
@@ -86,6 +78,7 @@
 	display: flex;
 	flex-wrap: wrap;
 	width: 750px;
+	height: 100%;
 	margin: 0;
 
 	@include mq-down() {
@@ -103,30 +96,9 @@
 		a {
 			display: block;
 			padding: 20px 20px 0;
-			.c-pickup__image__sumbnails3 {
+			.p-pickup__image__sumbnails {
 				color: #fff;
 				padding: calc(172 / 300 * 100%) 20px 0;
-				background: url(../img/nakamura5.jpg);
-				background-position: center center;
-				background-size: cover;
-			}
-		}
-		a {
-			display: block;
-			.c-pickup__image__sumbnails3 {
-				color: #fff;
-				padding: calc(172 / 300 * 100%) 20px 0;
-				background: url(../img/nakamura6.jpg);
-				background-position: center center;
-				background-size: cover;
-			}
-		}
-		a {
-			display: block;
-			.c-pickup__image__sumbnails3 {
-				color: #fff;
-				padding: calc(172 / 300 * 100%) 20px 0;
-				background: url(../img/nakamura7.jpg);
 				background-position: center center;
 				background-size: cover;
 			}
@@ -145,7 +117,7 @@
 			font-size: 20px;
 		}
 		.p-container__discription {
-			padding: 20px 0;
+			padding: 20px;
 			font-size: 16px;
 		}
 	}

@@ -14,10 +14,10 @@ get_header(); ?>
             $article_url = wp_get_attachment_url(get_post_thumbnail_id());
             $article_bg = "style='background-image:url(" . $article_url . ");'";
           ?>
-            <p class="c-container__date"><?php the_time('Y.m.d'); ?></p>
-            <p class="c-container__postTitle"><?php the_title(); ?></p>
-            <p class="c-pickup__image__sumbnails3" <?php echo $article_bg; ?>></p>
-            <p class="c-container__discription"><?php the_content(); ?></p>
+            <p class="p-container__date"><?php the_time('Y.m.d'); ?></p>
+            <p class="p-container__postTitle"><?php the_title(); ?></p>
+            <p class="p-pickup__image__sumbnails" <?php echo $article_bg; ?>></p>
+            <p class="p-container__discription"><?php the_content(); ?></p>
         </a>
 
         </div>

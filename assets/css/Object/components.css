@@ -19,6 +19,12 @@
   margin-right: 6px;
 }
 
+.headingTop {
+  display: flex;
+  justify-content: center;
+  font-size: 25px;
+}
+
 .pagination {
   margin: 70px auto 0;
 }

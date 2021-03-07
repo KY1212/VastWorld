@@ -93,11 +93,11 @@ class Walker_Nav_Menu_Custom extends Walker_Nav_Menu {
 
 
     //記事のサムネイル
-		$item_output .= '<p class="c-pickup__image__thumbnails"' . $article_bg . '>';
+		$item_output .= '<p class="p-pickup__image__thumbnails"' . $article_bg . '>';
 
 
 		//タイトルを表示
-		$item_output .= '<p class="c-pickup__title">' . $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after . '</p>';
+		$item_output .= '<p class="p-pickup__title">' . $args->link_before . apply_filters( 'the_title', $item->title, $item->ID ) . $args->link_after . '</p>';
 
 		$item_output .= '</a>';
 		$item_output .= $args->after;
@@ -118,6 +118,11 @@ function my_theme_widgets_init() {
   ) );
 }
 add_action( 'widgets_init', 'my_theme_widgets_init' );
+
+
+
+
+
 
 
 ///////////////////////////////////////

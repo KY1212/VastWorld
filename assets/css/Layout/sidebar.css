@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /*============sidebar============*/
 .l-sidebar {
   width: 350px;
@@ -99,6 +100,39 @@
 }
 .p-sidebar__inner .p-sidebar__archive .p-sidebar__archiveList .p-sidebar__month a {
   padding-left: 5px;
+}
+.p-sidebar__inner .search_container {
+  position: relative;
+  box-sizing: border-box;
+  border: 2px solid #993366;
+  border-radius: 3px;
+  height: 50px;
+  width: 265px;
+  overflow: hidden;
+}
+.p-sidebar__inner .search_container input[type="text"] {
+  border: none;
+  width: 200px;
+  height: 50px;
+  padding-left: 10px;
+}
+.p-sidebar__inner .search_container input[type="text"]:focus {
+  outline: 0;
+}
+.p-sidebar__inner .search_container input[type="submit"] {
+  cursor: pointer;
+  border: none;
+  background: #993366;
+  color: #fff;
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  right: 0px;
+  outline: none;
+  font-family: "Font Awesome 5 Free";
+  font-weight: 900;
+  content: "\f002";
+  /*←ココ！！！！！！！*/
 }
 
 /*============./sidebar============*/

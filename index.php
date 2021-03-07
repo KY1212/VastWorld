@@ -41,7 +41,7 @@
 							?>
 							<p class="p-container__date"><?php the_time('Y.m.d'); ?></p>
 							<p class="p-container__postTitle"><?php the_title(); ?></p>
-							<p class="c-pickup__image__sumbnails3" <?php echo $article_bg; ?>></p>
+							<p class="p-pickup__image__sumbnails" <?php echo $article_bg; ?>></p>
 							<p class="p-container__discription">
 								<?php
 									if(mb_strlen($post->post_content, 'UTF-8')>36){

@@ -121,8 +121,20 @@ add_action( 'widgets_init', 'my_theme_widgets_init' );
 
 
 
+function change_posts_per_page($query) {
+ /* 管理画面,メインクエリに干渉しないために必須 */
+ if ( is_admin() || ! $query->is_main_query() ){
+     return;
+ }
 
+ /* 日付アーカイブページの表示件数を5件にする */
+ if ( $query->is_date() ) {
+     $query->set( 'posts_per_page', '5' );
+     return;
+ }
 
+}
+add_action( 'pre_get_posts', 'change_posts_per_page' );
 
 
 ///////////////////////////////////////

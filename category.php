@@ -5,7 +5,7 @@
 				<h3 class="headingTop">
 					<?php single_cat_title(); ?>
 				</h3>
-				<div class="p-container__postWrap">
+				<div class="p-container__postWrap margin">
 				<?php
 					if (have_posts()):
 					while (have_posts()):the_post();

@@ -101,7 +101,11 @@
 .p-sidebar__inner .p-sidebar__archive .p-sidebar__archiveList .p-sidebar__month a {
   padding-left: 5px;
 }
-.p-sidebar__inner .search_container {
+.p-sidebar__inner .p-sidebar__search {
+  background-color: #fff;
+  padding: 30px;
+}
+.p-sidebar__inner .p-sidebar__search .p-search__container {
   position: relative;
   box-sizing: border-box;
   border: 2px solid #993366;
@@ -110,16 +114,16 @@
   width: 265px;
   overflow: hidden;
 }
-.p-sidebar__inner .search_container input[type="text"] {
+.p-sidebar__inner .p-sidebar__search .p-search__container input[type="text"] {
   border: none;
   width: 200px;
   height: 50px;
   padding-left: 10px;
 }
-.p-sidebar__inner .search_container input[type="text"]:focus {
+.p-sidebar__inner .p-sidebar__search .p-search__container input[type="text"]:focus {
   outline: 0;
 }
-.p-sidebar__inner .search_container input[type="submit"] {
+.p-sidebar__inner .p-sidebar__search .p-search__container input[type="submit"] {
   cursor: pointer;
   border: none;
   background: #993366;

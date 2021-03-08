@@ -3,7 +3,7 @@
 	<?php dynamic_sidebar('main-sidebar'); ?><!-- サイドバーを出力 -->
 
 		<section class="p-sidebar__search">
-			<form class="search_container" role="search" method="get" action="#" >
+			<form class="p-search__container" role="search" method="get" action="#" >
 			<input type="text" value="" name="s" class="s" placeholder="フリーワードを入力"/>
 			<input type="submit" value="&#xf002;">
 
@@ -13,6 +13,10 @@
 		<section class="p-sidebar__profile">
 			<div class="p-sidebar__profileImg">
 				<?php echo get_avatar( get_the_author_id() ); ?>
+				<?php
+					if( !have_posts() ) { //投稿がない場合以下を実行
+					}
+				?>
 			</div>
 			<p class="p-sidebar__name">
 				<?php the_author_nickname(); ?>
@@ -45,36 +49,36 @@
       </div>
     </section>
 		<section class="p-sidebar__archive">
-			<h3 class="c-heading">アーカイブ</h3>
-			<ul class="p-sidebar__archiveList">
-				<li class="p-sidebar__month">
-					<a href=""> 2021年1月 (31) </a>
-				</li>
-				<li class="p-sidebar__month">
-					<a href=""> 2021年1月 (31) </a>
-				</li>
-				<li class="p-sidebar__month">
-					<a href=""> 2021年1月 (31) </a>
-				</li>
-				<li class="p-sidebar__month">
-					<a href=""> 2021年1月 (31) </a>
-				</li>
-				<li class="p-sidebar__month">
-					<a href=""> 2021年1月 (31) </a>
-				</li>
-				<li class="p-sidebar__month">
-					<a href=""> 2021年1月 (31) </a>
-				</li>
-				<li class="p-sidebar__month">
-					<a href=""> 2021年1月 (31) </a>
-				</li>
-				<li class="p-sidebar__month">
-					<a href=""> 2021年1月 (31) </a>
-				</li>
-				<li class="p-sidebar__month">
-					<a href=""> 2021年1月 (31) </a>
-				</li>
+			<h3 class="c-heading">過去の投稿</h3>
+			<?php
+			$year_prev = null;
+			$postType = get_post_type( );
+			$months = $wpdb->get_results("SELECT DISTINCT MONTH( post_date ) AS month ,
+				YEAR( post_date ) AS year,
+				COUNT( id ) as post_count FROM $wpdb->posts
+				WHERE post_status = 'publish' and post_date <= now( )
+				and post_type = '$postType'
+				GROUP BY month , year
+				ORDER BY post_date DESC");
+			foreach($months as $month):
+				$year_current = $month->year;
+			if ($year_current != $year_prev) { ?>
+			<?php if($year_prev != null): ?>
 			</ul>
+			<?php endif; ?>
+        <ul class="p-sidebar__archiveList">
+					<?php } ?>
+					<li class="p-sidebar__month">
+						<a href="<?php echo esc_url(home_url()); ?>/date/<?php echo $month->year; ?>/<?php echo date("m", mktime(0, 0, 0, $month->month, 1, $month->year)) ?>">
+						<?php echo $month->year; ?>年<?php echo date("n", mktime(0, 0, 0, $month->month, 1, $month->year)) ?>月 (<?php echo $month->post_count; ?>)
+						</a>
+					</li>
+					<li class="p-sidebar__month"><a href=""><?php echo $month->year; ?>年3月 (10)</a></li>
+					<li class="p-sidebar__month"><a href=""><?php echo $month->year; ?>年3月 (10)</a></li>
+					<li class="p-sidebar__month"><a href=""><?php echo $month->year; ?>年3月 (10)</a></li>
+					<?php $year_prev = $year_current; ?>
+					<?php endforeach; ?>
+				</ul>
+			</div>
 		</section>
-	</div>
-</aside>
+	</aside>

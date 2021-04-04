@@ -18,6 +18,30 @@ function read_assets() {
 
 }
 
+
+/* the_archive_title 余計な文字を削除 */
+add_filter( 'get_the_archive_title', function ($title) {
+  if (is_category()) {
+    $title = single_cat_title('',false);
+  } elseif (is_tag()) {
+    $title = single_tag_title('',false);
+	} elseif (is_tax()) {
+    $title = single_term_title('',false);
+	} elseif (is_post_type_archive() ){
+		$title = post_type_archive_title('',false);
+	} elseif (is_date()) {
+    $title = get_the_time('Y年n月');
+	} elseif (is_search()) {
+    $title = '検索結果：'.esc_html( get_search_query(false) );
+	} elseif (is_404()) {
+    $title = '「404」ページが見つかりません';
+	} else {
+
+	}
+    return $title;
+});
+
+
 //WPの不要なクラスを除去
 function remove_menu_id( $id ){
 	return $id = array();
@@ -123,16 +147,14 @@ add_action( 'widgets_init', 'my_theme_widgets_init' );
 
 function change_posts_per_page($query) {
  /* 管理画面,メインクエリに干渉しないために必須 */
- if ( is_admin() || ! $query->is_main_query() ){
-     return;
- }
-
+  if ( is_admin() || ! $query->is_main_query() ){
+    return;
+  }
  /* 日付アーカイブページの表示件数を5件にする */
- if ( $query->is_date() ) {
-     $query->set( 'posts_per_page', '5' );
-     return;
- }
-
+//  if ( $query->is_date() ) {
+//      $query->set( 'posts_per_page', '5' );
+//      return;
+//  }
 }
 add_action( 'pre_get_posts', 'change_posts_per_page' );
 

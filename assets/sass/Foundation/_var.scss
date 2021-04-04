@@ -1,0 +1,27 @@
+@mixin heading {
+	font-size: 18px;
+	display: flex;
+	justify-content: center;
+	margin-top: 20px;
+}
+
+@mixin c-inner {
+	display: flex;
+	width: 96%;
+	@include mq(tab) {
+		max-width: 1100px;
+	}
+}
+
+$breakpoints: (
+	"xs": "screen and (max-width: 425px)",
+	"sp": "screen and (max-width: 768px)",
+	"tab": "screen and (max-width: 1025px)",
+	"pc": "screen and (min-width: 1024px)",
+) !default;
+
+@mixin mq($breakpoint: pc) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}

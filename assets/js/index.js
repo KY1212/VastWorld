@@ -2,11 +2,11 @@ jQuery(function($){
 
   function toggleNav() {
     const $hamburger = $(".hamburger");
-    const $menu = $(".menu");
+    const $list = $(".p-header__list");
 
     function toggleAction() {
       $hamburger.toggleClass("active");
-      $menu.toggleClass("open");
+      $list.toggleClass("open");
     }
     $hamburger.on("click", toggleAction);
   }

@@ -1,9 +1,8 @@
-@import "../Foundation/mixin.scss";
-
 /*============global============*/
 
 body {
 	background-color: #f5f5f5;
+	font-family: roboto;
 }
 
 img {
@@ -21,4 +20,7 @@ a {
 
 .l-main {
 	margin-top: 30px;
+}
+a {
+	text-decoration: none;
 }

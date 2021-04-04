@@ -1,11 +1,9 @@
-@import "../Foundation/mixin.scss";
-
 /*============sidebar============*/
 .l-sidebar {
 	width: 350px;
 	margin-left: 30px;
 	color: #808080;
-	@include mq-down() {
+	@include mq(sp) {
 		width: 100%;
 		margin: 30px 0 0;
 	}
@@ -61,12 +59,11 @@
 					display: block;
 					.p-pickup__image__sumbnails1 {
 						padding: calc(172 / 300 * 100%) 20px 0;
-						@include mq-down() {
-							padding: calc(102 / 300 * 100%) 20px 0;
-						}
-						background: url(../img/nakamura5.jpg);
 						background-position: center center;
 						background-size: cover;
+						@include mq(sp) {
+							padding: calc(102 / 300 * 100%) 20px 0;
+						}
 					}
 					.p-pickup__discription {
 						padding: 10px 0;
@@ -125,7 +122,7 @@
 				outline: none;
 				font-family: "Font Awesome 5 Free";
 				font-weight: 900;
-				content: "\f002"; /*←ココ！！！！！！！*/
+				content: "\f002";
 			}
 		}
 	}

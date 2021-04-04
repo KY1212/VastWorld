@@ -69,13 +69,10 @@
         <ul class="p-sidebar__archiveList">
 					<?php } ?>
 					<li class="p-sidebar__month">
-						<a href="<?php echo esc_url(home_url()); ?>/date/<?php echo $month->year; ?>/<?php echo date("m", mktime(0, 0, 0, $month->month, 1, $month->year)) ?>">
+						<a href="<?php echo esc_url(home_url()); ?>/<?php echo $month->year; ?>/<?php echo date("m", mktime(0, 0, 0, $month->month, 1, $month->year)) ?>">
 						<?php echo $month->year; ?>年<?php echo date("n", mktime(0, 0, 0, $month->month, 1, $month->year)) ?>月 (<?php echo $month->post_count; ?>)
 						</a>
 					</li>
-					<li class="p-sidebar__month"><a href=""><?php echo $month->year; ?>年3月 (10)</a></li>
-					<li class="p-sidebar__month"><a href=""><?php echo $month->year; ?>年3月 (10)</a></li>
-					<li class="p-sidebar__month"><a href=""><?php echo $month->year; ?>年3月 (10)</a></li>
 					<?php $year_prev = $year_current; ?>
 					<?php endforeach; ?>
 				</ul>

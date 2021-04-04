@@ -15,7 +15,7 @@
       <div class="p-header__title">
         <a href="<?php echo home_url(); ?>">
           <h1 class="p-header__logo">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/heade2.png" alt="Vastworld" />
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/header2.png" alt="Vastworld" />
 						</h1>
         </a>
       </div>

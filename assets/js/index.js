@@ -7,6 +7,9 @@ jQuery(function($){
     function toggleAction() {
       $hamburger.toggleClass("active");
       $list.toggleClass("open");
+      $("html").toggleClass("is-fixed");  // 背景固定解除！
+      $('body').scrollTop();
+
     }
     $hamburger.on("click", toggleAction);
   }

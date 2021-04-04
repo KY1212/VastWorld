@@ -381,7 +381,7 @@ header.is-sticky {
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 425px;
+    top: 467px;
     width: 100vw;
     height: 100vh;
     background-color: grey;
@@ -399,6 +399,12 @@ header.is-sticky {
 .l-header .p-header__inner .p-header__nav .p-header__list .p-header__item a {
   color: #fff;
   font-size: 18px;
+  transition-duration: 0.3s;
+}
+.l-header .p-header__inner .p-header__nav .p-header__list .p-header__item a:hover {
+  text-shadow: #eee 1px 1px 10px, #fff -1px 1px 10px, black 1px -1px 10px, #fff -1px -1px 10px;
+  cursor: pointer;
+  transition-duration: 0.3s;
 }
 @media screen and (max-width: 768px) {
   .l-header .p-header__inner .p-header__nav .p-header__list .p-header__item a {
@@ -522,7 +528,6 @@ html.is-fixed body {
   display: flex;
   flex-wrap: wrap;
   max-width: 750px;
-  margin: 0;
 }
 @media screen and (max-width: 1025px) {
   .p-container__postWrap {
@@ -591,7 +596,7 @@ html.is-fixed body {
   margin-left: 30px;
   color: #808080;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1025px) {
   .l-sidebar {
     width: 100%;
     margin: 30px 0 0;
@@ -657,7 +662,7 @@ html.is-fixed body {
   background-position: center center;
   background-size: cover;
 }
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1025px) {
   .p-sidebar__inner .p-sidebar__pickup .p-pickup__postWrap .p-pickup__post a .p-pickup__image__sumbnails1 {
     padding: calc(102 / 300 * 100%) 20px 0;
   }
@@ -721,6 +726,11 @@ html.is-fixed body {
   font-family: "Font Awesome 5 Free";
   font-weight: 900;
   content: "\f002";
+}
+@media screen and (max-width: 1025px) {
+  .p-sidebar__inner .p-sidebar__search .p-search__container {
+    width: 100%;
+  }
 }
 
 /*============./sidebar============*/

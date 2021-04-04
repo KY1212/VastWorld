@@ -59,7 +59,6 @@
 	display: flex;
 	flex-wrap: wrap;
 	max-width: 750px;
-	margin: 0;
 	@include mq(tab) {
 		max-width: none;
 		width: 100%;

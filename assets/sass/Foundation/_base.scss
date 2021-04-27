@@ -24,3 +24,37 @@ a {
 a {
 	text-decoration: none;
 }
+
+//ボタン
+$color-main: #993366;
+//メニュー
+$color-list: #2b4b9d;
+
+$color-title: #6a1435;
+
+//font-weightはVar.sassに変数として格納
+$font-weight-regular: 400;
+$font-weight-medium: 500;
+$font-weight-bold: 700;
+$font-weight-black: 900;
+$font-family-sans: Noto Sans JP;
+
+// @mixin inner {
+// 	display: flex;
+// 	justify-content: center;
+// 	max-width: 1080px;
+// 	margin: auto;
+// 	width: calc(100% - 32px);
+// }
+
+// $breakpoints: (
+// 	"xs": "screen and (max-width: 374px)",
+// 	"sp": "screen and (max-width: 768px)",
+// 	"tab-pc": "(max-width: 1079px) and (min-width: 767px)",
+// 	"pc": "screen and (min-width: 767px)",
+// ) !default;
+// @mixin mq($breakpoint) {
+// 	@media #{(map-get($breakpoints, $breakpoint))} {
+// 		@content;
+// 	}
+// }

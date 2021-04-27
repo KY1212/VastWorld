@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * YUI 3.5.0 - reset.css (http://developer.yahoo.com/yui/3/cssreset/)
  * http://cssreset.com
@@ -182,9 +183,17 @@ a {
   object-fit: contain;
 }
 
-.fas,
-.far {
+.fas:first-child,
+.far:first-child {
   margin-right: 6px;
+}
+
+i + i {
+  margin: 0 0 0 6px;
+}
+
+.fas.fa-angle-down {
+  display: inline-block;
 }
 
 .headingTop {
@@ -239,9 +248,6 @@ a {
   margin-left: 10px;
 }
 
-/*=============================
-hamburger
-=============================*/
 .hamburger {
   position: relative;
   width: 33px;
@@ -328,6 +334,67 @@ hamburger
   margin-top: 30px;
 }
 
+.p-toc__tocWrap {
+  border: 3px solid #993366;
+  border-radius: 2px;
+  margin-top: 15px;
+  padding-bottom: 15px;
+}
+.p-toc__tocWrap .p-index {
+  margin-top: 15px;
+  text-align: center;
+  font-size: 25px;
+  color: #6a1435;
+  font-weight: 500;
+}
+.p-toc__tocWrap ol {
+  padding-left: 30px;
+  font-size: 20px;
+}
+.p-toc__tocWrap ol .p-toc__item {
+  margin-top: 15px;
+}
+.p-toc__tocWrap ol .p-toc__item a {
+  color: #6a1435;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  text-decoration: none;
+}
+.p-toc__tocWrap ol .p-toc__item a::before {
+  position: absolute;
+  bottom: 0px;
+  left: -5px;
+  content: "";
+  width: 2px;
+  height: 100%;
+  background: #6a1435;
+  transform: scale(1, 1);
+  transform-origin: left bottom;
+  transition: transform 0.3s;
+}
+.p-toc__tocWrap ol .p-toc__item a:hover::before {
+  transform: scale(1, 0);
+}
+.p-toc__tocWrap ol .p-toc__item a::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  content: "";
+  width: 100%;
+  height: 2px;
+  background: #6a1435;
+  transform: scale(0, 1);
+  transform-origin: left top;
+  transition: transform 0.3s;
+}
+.p-toc__tocWrap ol .p-toc__item a:hover::after {
+  transform: scale(1, 1);
+}
+.p-toc__tocWrap ol ol {
+  font-size: 16px;
+}
+
 .p-container__post--none {
   width: 100%;
   display: flex;
@@ -375,6 +442,7 @@ header.is-sticky {
 }
 .l-header .p-header__inner .p-header__nav .p-header__list {
   display: flex;
+  align-items: center;
 }
 @media screen and (max-width: 768px) {
   .l-header .p-header__inner .p-header__nav .p-header__list {
@@ -396,6 +464,10 @@ header.is-sticky {
     transition: all 0.5s;
   }
 }
+.l-header .p-header__inner .p-header__nav .p-header__list .p-header__item {
+  position: relative;
+  display: block;
+}
 .l-header .p-header__inner .p-header__nav .p-header__list .p-header__item a {
   color: #fff;
   font-size: 18px;
@@ -411,11 +483,11 @@ header.is-sticky {
     font-size: 30px;
   }
 }
-.l-header .p-header__inner .p-header__nav .p-header__list .p-header__item + .p-header__item {
+.l-header .p-header__inner .p-header__nav .p-header__list > .p-header__item + .p-header__item {
   margin-left: 40px;
 }
 @media screen and (max-width: 768px) {
-  .l-header .p-header__inner .p-header__nav .p-header__list .p-header__item + .p-header__item {
+  .l-header .p-header__inner .p-header__nav .p-header__list > .p-header__item + .p-header__item {
     margin: 50px 0 0;
   }
 }
@@ -423,6 +495,24 @@ header.is-sticky {
   .l-header .p-header__inner .p-header__nav .p-header__list .p-header__item:nth-child(1) {
     margin-top: 100px;
   }
+}
+
+.sub-menu {
+  position: absolute;
+  background-color: #993366;
+  top: 45px;
+  width: 100%;
+  border: 3px solid #993366;
+}
+.sub-menu .p-header__item {
+  margin: 20px;
+}
+.sub-menu::before {
+  content: "";
+  border: solid 3px #fff;
+  position: absolute;
+  width: calc(100% - 6px);
+  height: calc(100% - 6px);
 }
 
 @keyframes show {
@@ -544,11 +634,11 @@ html.is-fixed body {
     width: 100%;
   }
 }
-.p-container__postWrap .p-container__post a {
+.p-container__postWrap .p-container__post > a {
   display: block;
   padding: 20px 20px 0;
 }
-.p-container__postWrap .p-container__post a .p-pickup__image__sumbnails {
+.p-container__postWrap .p-container__post > a .p-pickup__image__sumbnails {
   color: #fff;
   padding: calc(172 / 300 * 100%) 20px 0;
   background-position: center center;
@@ -748,5 +838,103 @@ footer .l-footer__inner .c-copylight {
 }
 
 /*============./footer============*/
+.done {
+  display: none;
+}
+
+.topPageBtn {
+  display: none;
+}
+
+.wpcf7-form {
+  width: 96%;
+  max-width: 600px;
+  margin: auto;
+}
+
+.wpcf7-form p {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact_complete {
+  margin-top: 30px;
+}
+
+.contact_complete .contents {
+  margin-top: 30px;
+}
+
+.wpcf7-form-control-wrap {
+  position: relative;
+  width: 600px;
+}
+@media screen and (max-width: 768px) {
+  .wpcf7-form-control-wrap {
+    width: 96%;
+  }
+}
+
+.wpcf7-form-control-wrap input[type="text"],
+.wpcf7-form-control-wrap input[type="email"] {
+  font: 15px/24px sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  height: 40px;
+  padding: 5px;
+  transition: 0.3s;
+  border: 1px solid #333;
+  border-radius: 4px;
+}
+
+.wpcf7-form-control-wrap textarea {
+  font: 15px/24px sans-serif;
+  box-sizing: border-box;
+  width: 100%;
+  padding: 5px;
+  transition: 0.3s;
+  border: 1px solid #333;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.wpcf7-text:focus,
+.wpcf7-textarea:focus {
+  border: 1px solid #993366;
+  outline: none;
+  box-shadow: 0 0 5px 0.8px rgba(153, 51, 102, 0.5);
+}
+
+.wpcf7-response-output {
+  text-align: center;
+  border-color: #993366 !important;
+  margin: 20px 0 !important;
+}
+
+.wpcf7-submit {
+  margin-top: 30px;
+  width: 180px;
+  height: 40px;
+  background-color: #993366;
+  color: #fff;
+  border: 2px solid #000;
+  border-radius: 10px;
+  box-shadow: 0;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  transition: 0.3s;
+  outline: none;
+  border: none;
+  /* 枠線を消す */
+  cursor: pointer;
+}
+
+.wpcf7-submit:hover {
+  box-shadow: 0 0 15px 1px rgba(153, 51, 102, 0.5);
+  opacity: 0.9;
+}
 
 /*# sourceMappingURL=style.css.map */

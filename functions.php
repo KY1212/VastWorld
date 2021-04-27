@@ -15,9 +15,7 @@ function read_assets() {
     get_theme_file_uri().'/assets/js/index.js',
     array('jquery'),true
   );
-
 }
-
 
 /* the_archive_title 余計な文字を削除 */
 add_filter( 'get_the_archive_title', function ($title) {

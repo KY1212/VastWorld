@@ -6,7 +6,9 @@
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
-  <title><?php bloginfo('name'); wp_title('|',true,'left'); ?></title>
+  <title>
+    <?php bloginfo('name'); wp_title('|',true,'left'); ?>
+</title>
   <?php wp_head(); ?>
 </head>
 <body>
@@ -15,7 +17,7 @@
       <div class="p-header__title">
         <a href="<?php echo home_url(); ?>">
           <h1 class="p-header__logo">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/header2.png" alt="Vastworld" />
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/header2.png" alt="title画像挿入" />
 						</h1>
         </a>
       </div>

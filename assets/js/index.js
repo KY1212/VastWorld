@@ -105,7 +105,7 @@ jQuery(function ($) {
 
     item2.find('.sub-menu').each(function () {
       // if(item2.find('.sub-menu')) {
-        $(this).parent().append('<i class="fas fa-angle-down"></i>');
+        $(this).parent().find('a').append('<i class="fas fa-angle-down"></i>');
       // }
     });
 

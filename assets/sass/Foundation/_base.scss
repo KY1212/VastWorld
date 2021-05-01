@@ -1,7 +1,7 @@
 /*============global============*/
 
 body {
-	background-color: #f5f5f5;
+	background-color: #f2ecde;
 	font-family: roboto;
 }
 
@@ -21,40 +21,31 @@ a {
 .l-main {
 	margin-top: 30px;
 }
+
 a {
 	text-decoration: none;
 }
 
-//ボタン
-$color-main: #993366;
-//メニュー
-$color-list: #2b4b9d;
+//メインカラー
+$main-color: #8e1a47;
+$main-color-text: #333;
+//ヘッダーの背景色
+$header-color: #ebe0ce;
 
-$color-title: #6a1435;
+/* ==============
+サイドバー関連
+============== */
+//サイドバー内の各要素のbackground-color
+$color-sidebar-background: #fff;
 
-//font-weightはVar.sassに変数として格納
+//プロフィールの文字色
+$color-profile: #333;
+//アーカイブ内のアンダーラインの色
+$color-archive: #d3d3d3;
+
+//文字の太さ
 $font-weight-regular: 400;
 $font-weight-medium: 500;
 $font-weight-bold: 700;
 $font-weight-black: 900;
 $font-family-sans: Noto Sans JP;
-
-// @mixin inner {
-// 	display: flex;
-// 	justify-content: center;
-// 	max-width: 1080px;
-// 	margin: auto;
-// 	width: calc(100% - 32px);
-// }
-
-// $breakpoints: (
-// 	"xs": "screen and (max-width: 374px)",
-// 	"sp": "screen and (max-width: 768px)",
-// 	"tab-pc": "(max-width: 1079px) and (min-width: 767px)",
-// 	"pc": "screen and (min-width: 767px)",
-// ) !default;
-// @mixin mq($breakpoint) {
-// 	@media #{(map-get($breakpoints, $breakpoint))} {
-// 		@content;
-// 	}
-// }

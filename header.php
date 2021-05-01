@@ -17,7 +17,7 @@
       <div class="p-header__title">
         <a href="<?php echo home_url(); ?>">
           <h1 class="p-header__logo">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/header2.png" alt="title画像挿入" />
+							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/header4.png" alt="title画像挿入" />
 						</h1>
         </a>
       </div>

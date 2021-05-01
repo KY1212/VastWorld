@@ -31,6 +31,11 @@ i + i {
 	display: flex;
 	justify-content: center;
 	font-size: 25px;
+	color: $main-color;
+	&::after {
+		content: "";
+		border-bottom: 2px solid $main-color;
+	}
 }
 
 .pagination {
@@ -38,21 +43,24 @@ i + i {
 	.list {
 		display: flex;
 		justify-content: center;
-		d .arrow,
+		.arrow,
 		li .fas {
 			height: 22px;
 			display: flex;
 			align-items: center;
-			color: #558f54;
+			color: $main-color;
 		}
 		.arrow:hover {
 			opacity: 0.8;
 		}
 		.page {
 			width: 22px;
-			height: 22px;
-			.page a {
-				background-color: #558f54;
+			line-height: 22px;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			a {
+				background-color: $main-color;
 				color: #fff;
 				font-size: 12px;
 				width: 22px;
@@ -60,18 +68,14 @@ i + i {
 				display: flex;
 				justify-content: center;
 				align-items: center;
-				border-radius: 50%;
 			}
-			.page a:hover {
-				background-color: #fff;
-				color: #558f54;
-				border: 1px solid #558f54;
+			a:hover {
+				opacity: 0.8;
 			}
-
-			.page.active a {
+			&.active a {
 				background-color: #fff;
-				color: #558f54;
-				border: 1px solid #558f54;
+				color: $main-color;
+				border: 1px solid $main-color;
 			}
 		}
 		li:not(:first-child) {
@@ -110,7 +114,6 @@ i + i {
 .hamburger span:nth-of-type(3) {
 	bottom: 0;
 }
-
 .hamburger.active {
 	-webkit-transform: rotate(360deg);
 	transform: rotate(360deg);
@@ -126,12 +129,10 @@ i + i {
 .hamburger.active span:nth-of-type(3) {
 	opacity: 0;
 }
-
 .menu.open {
 	top: 220px;
 	transition-duration: 0.5s;
 }
-
 .menu {
 	display: flex;
 	background-color: #f9f9f9;
@@ -141,7 +142,6 @@ i + i {
 	position: fixed;
 	transition-duration: 0.5s;
 }
-
 .menu ul {
 	display: flex;
 	align-items: center;
@@ -149,17 +149,14 @@ i + i {
 	margin: 100px auto 0;
 	width: 96%;
 }
-
 .menu ul .p-header__item {
 	font-size: 18px;
 }
-
 .menu ul .p-header__item + .p-header__item {
 	margin-top: 30px;
 }
-
 .p-toc__tocWrap {
-	border: 3px solid $color-main;
+	border: 3px solid $main-color;
 	border-radius: 2px;
 	margin-top: 15px;
 	padding-bottom: 15px;
@@ -167,7 +164,7 @@ i + i {
 		margin-top: 15px;
 		text-align: center;
 		font-size: 25px;
-		color: $color-title;
+		color: $main-color;
 		font-weight: $font-weight-medium;
 	}
 	ol {
@@ -176,26 +173,11 @@ i + i {
 		.p-toc__item {
 			margin-top: 15px;
 			a {
-				color: $color-title;
+				color: $main-color;
 				font-weight: $font-weight-medium;
 				position: relative;
 				display: inline-block;
 				text-decoration: none;
-				&::before {
-					position: absolute;
-					bottom: 0px;
-					left: -5px;
-					content: "";
-					width: 2px;
-					height: 100%;
-					background: $color-title;
-					transform: scale(1, 1);
-					transform-origin: left bottom;
-					transition: transform 0.3s;
-				}
-				&:hover::before {
-					transform: scale(1, 0);
-				}
 
 				&::after {
 					position: absolute;
@@ -204,7 +186,7 @@ i + i {
 					content: "";
 					width: 100%;
 					height: 2px;
-					background: $color-title;
+					background: $main-color;
 					transform: scale(0, 1);
 					transform-origin: left top;
 					transition: transform 0.3s;
@@ -212,6 +194,9 @@ i + i {
 				&:hover::after {
 					transform: scale(1, 1);
 				}
+			}
+			&::marker {
+				color: $main-color;
 			}
 		}
 		ol {

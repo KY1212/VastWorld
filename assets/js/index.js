@@ -1,30 +1,28 @@
 jQuery(function ($) {
 
-  function toggleNav() {
+  function toggleAction() {
     const $hamburger = $(".hamburger");
-    const $list = $(".p-header__list");
-    const $headerItem = $(".p-header_item");
-    const $subMenu = $(".sub-menu");
-
+    const $list = $('.p-header__list');
+    const $headerItem = $('.p-header__item > a');
     function toggleActionHamburger() {
       $hamburger.toggleClass("active");
       $list.toggleClass("open");
-
-
-      $("html").toggleClass("is-fixed");  // 背景固定解除！
-      $('body').scrollTop();
-
+      // $("html").toggleClass("is-fixed");  // 背景固定解除！
+      // $('body').scrollTop();
     }
-
-    // function toggleActionDropDownMenu() {
-    //   $subMenu.toggleClass("open");
-
-    // }
+    function toggleActionSubMenu() {
+      $headerItem.next().removeClass('is-active');
+      $(this).next().addClass('is-active');
+    }
+    function toggleActionOutOfArea(e) {
+      if (!$(e.target).closest($headerItem.next()).length) {
+        $headerItem.next().removeClass('is-active');
+      }
+    }
     $hamburger.on("click", toggleActionHamburger);
-    // $headerItem.on("click", toggleActionDropDownMenu);
-
+    $headerItem.on("click", toggleActionSubMenu);
+    $(document).on("click", toggleActionOutOfArea);
   }
-
 
   jQuery(function ($) {
     const tocWrap = jQuery(".p-toc__tocWrap");
@@ -100,24 +98,20 @@ jQuery(function ($) {
 
 
   function addFontawesomeToMenuItems() {
-    const item = $('.p-header__list > .p-header__item > a');
-    const item2 = $('.p-header__list > .p-header__item');
-
-    item2.find('.sub-menu').each(function () {
-      // if(item2.find('.sub-menu')) {
-        $(this).parent().find('a').append('<i class="fas fa-angle-down"></i>');
-      // }
+    const subMenu = $('.p-header__list > .p-header__item > .sub-menu');
+    subMenu.each(function () {
+      $(this).parent().find('a').append('<i class="fas fa-angle-down"></i>');
     });
-
+    subMenu.find('a > i').remove('i');
   }
 
   function init() {
-    toggleNav();
+    toggleAction();
     scroll();
+    index();
+    addFontawesomeToMenuItems();
   }
 
-  index();
-  addFontawesomeToMenuItems();
   init();
 
 });

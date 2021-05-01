@@ -8,7 +8,7 @@ get_header(); ?>
   <div class="p-container__inner">
     <div class="p-container__postWrap">
       <?php if(have_posts()): while(have_posts()): the_post(); ?>
-      <div class="p-container__post p-single__post">
+      <div class="p-single__post">
         <a>
           <?php
             $article_url = wp_get_attachment_url(get_post_thumbnail_id());

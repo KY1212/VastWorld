@@ -2,7 +2,7 @@
 .l-sidebar {
 	width: 350px;
 	margin-left: 30px;
-	color: #808080;
+	color: $main-color;
 	@include mq(tab) {
 		width: 100%;
 		margin: 30px 0 0;
@@ -12,122 +12,136 @@
 .p-sidebar__inner {
 	display: flex;
 	flex-direction: column;
-	section + section {
-		margin-top: 30px;
+}
+
+section + section {
+	margin-top: 30px;
+}
+
+.p-sidebar__profile {
+	background-color: $color-sidebar-background;
+	color: $color-profile;
+	padding: 20px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+}
+
+.p-sidebar__profileImg {
+	img {
+		border-radius: 50%;
+		width: 190px;
+		height: 190px;
+		object-fit: cover;
 	}
-	.p-sidebar__profile {
-		background-color: #fff;
-		padding: 20px;
+	.p-sidebar__name {
 		display: flex;
-		flex-direction: column;
 		justify-content: center;
-		align-items: center;
-		.p-sidebar__profileImg {
-			img {
-				border-radius: 50%;
-				width: 190px;
-				height: 190px;
-				object-fit: cover;
-			}
-		}
-		.p-sidebar__name {
-			display: flex;
-			justify-content: center;
-			font-size: 18px;
-			margin-top: 20px;
-		}
-		.p-sidebar__discription {
-			display: flex;
-			justify-content: center;
-			font-size: 18px;
-			margin-top: 20px;
-		}
+		font-size: 18px;
+		margin-top: 20px;
 	}
-	.p-sidebar__pickup {
-		background-color: #fff;
-		.p-pickup__postWrap {
-			display: flex;
-			flex-direction: column;
-			justify-content: center;
-			.c-heading {
-				@include heading;
-			}
-			.p-pickup__post {
-				margin: 20px auto 0;
-				width: 90%;
-				a {
-					display: block;
-					.p-pickup__image__sumbnails1 {
-						padding: calc(172 / 300 * 100%) 20px 0;
-						background-position: center center;
-						background-size: cover;
-						@include mq(tab) {
-							padding: calc(102 / 300 * 100%) 20px 0;
-						}
-					}
-					.p-pickup__discription {
-						padding: 10px 0;
-						font-size: 18px;
-					}
-				}
-			}
-		}
+	.p-sidebar__discription {
+		display: flex;
+		justify-content: center;
+		font-size: 18px;
+		margin-top: 20px;
 	}
-	.p-sidebar__archive {
-		background-color: #fff;
-		.c-heading {
-			@include heading;
-		}
-		.p-sidebar__archiveList {
-			margin: 20px;
-			.p-sidebar__month {
-				padding: 15px 10px;
-				line-height: 1;
-				border-bottom: solid 1px #d3d3d3;
-				a {
-					padding-left: 5px;
-				}
-			}
-		}
+}
+
+.p-sidebar__pickup {
+	background-color: $color-sidebar-background;
+}
+
+.p-sidebar__postWrap {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	.c-heading {
+		@include heading;
 	}
-	.p-sidebar__search {
-		background-color: #fff;
-		padding: 30px;
-		.p-search__container {
-			position: relative;
-			box-sizing: border-box;
-			border: 2px solid #993366;
-			border-radius: 3px;
-			height: 50px;
-			width: 265px;
-			overflow: hidden;
-			input[type="text"] {
-				border: none;
-				width: 200px;
-				height: 50px;
-				padding-left: 10px;
-			}
-			input[type="text"]:focus {
-				outline: 0;
-			}
-			input[type="submit"] {
-				cursor: pointer;
-				border: none;
-				background: #993366;
-				color: #fff;
-				position: absolute;
-				width: 50px;
-				height: 50px;
-				right: 0px;
-				outline: none;
-				font-family: "Font Awesome 5 Free";
-				font-weight: 900;
-				content: "\f002";
-			}
-			@include mq(tab) {
-				width: 100%;
-			}
-		}
+}
+
+.p-sidebar__post {
+	margin: 20px auto 0;
+	width: 90%;
+	a {
+		display: block;
+	}
+}
+
+.p-sidebar__image__sumbnails {
+	padding: calc(172 / 300 * 100%) 20px 0;
+	background-position: center center;
+	background-size: cover;
+	@include mq(tab) {
+		padding: calc(102 / 300 * 100%) 20px 0;
+	}
+}
+
+.p-sidebar__discription {
+	padding: 10px 0;
+	font-size: 18px;
+}
+
+.p-sidebar__archive {
+	background-color: $color-sidebar-background;
+	.c-heading {
+		@include heading;
+	}
+}
+
+.p-sidebar__archiveList {
+	margin: 20px;
+}
+
+.p-sidebar__month {
+	padding: 15px 10px;
+	line-height: 1;
+	border-bottom: solid 1px $color-archive;
+	a {
+		padding-left: 5px;
+	}
+}
+
+.p-sidebar__search {
+	background-color: $color-sidebar-background;
+	padding: 30px;
+}
+
+.p-search__container {
+	position: relative;
+	box-sizing: border-box;
+	border: 2px solid $main-color;
+	border-radius: 3px;
+	height: 50px;
+	width: 265px;
+	overflow: hidden;
+	input[type="text"] {
+		border: none;
+		width: 200px;
+		height: 50px;
+		padding-left: 10px;
+	}
+	input[type="text"]:focus {
+		outline: 0;
+	}
+	input[type="submit"] {
+		cursor: pointer;
+		border: none;
+		color: #fff;
+		background-color: $main-color;
+		position: absolute;
+		width: 50px;
+		height: 50px;
+		right: 0px;
+		outline: none;
+		font-family: "Font Awesome 5 Free";
+		font-weight: 900;
+		content: "\f002";
+	}
+	@include mq(tab) {
+		width: 100%;
 	}
 }
 

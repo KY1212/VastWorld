@@ -8,111 +8,125 @@ header.is-sticky {
 	padding-bottom: 70px;
 }
 
-.l-header {
-	.p-header__inner {
-		width: 100%;
+.p-header__inner {
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+}
+
+.p-header__title {
+	display: flex;
+	justify-content: center;
+	padding: 20px 0;
+	z-index: 9999;
+	background-color: $header-color;
+	a {
+		.p-header__logo {
+			max-width: 400px;
+		}
+	}
+}
+
+.p-header__nav {
+	background-color: $main-color;
+	width: 100%;
+	height: 70px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 9998;
+	color: #ebe0ce;
+}
+
+.p-header__list {
+	display: flex;
+	align-items: center;
+	@include mq(sp) {
 		display: flex;
 		flex-direction: column;
-		.p-header__title {
-			display: flex;
-			justify-content: center;
-			padding: 20px 0;
-			z-index: 9999;
-			background-color: #fff;
-			a {
-				.p-header__logo {
-					max-width: 400px;
-				}
+		position: relative;
+		top: 528px;
+		width: 100vw;
+		height: 100vh;
+		background-color: grey;
+		align-items: center;
+		opacity: 0;
+		visibility: hidden;
+		transition: all 0.5s;
+		padding: 60px 0;
+		&.open {
+			opacity: 0.97;
+			visibility: visible;
+			transition: all 0.5s;
+		}
+	}
+	//親となるメニュー項目
+	.p-header__item {
+		position: relative;
+		top: 0;
+		a {
+			color: #ebe0ce;
+			font-size: 18px;
+			transition-duration: 0.3s;
+			&:hover {
+				text-shadow: #eee 1px 1px 10px, #ebe0ce -1px 1px 10px,
+					black 1px -1px 10px, #ebe0ce -1px -1px 10px;
+				cursor: pointer;
+				transition-duration: 0.3s;
+			}
+			@include mq(sp) {
+				font-size: 35px;
 			}
 		}
-		.p-header__nav {
-			background-color: #993366;
-			width: 100%;
-			height: 70px;
-			display: flex;
-			justify-content: center;
-			align-items: center;
-			z-index: 9998;
-			color: #fff;
-			.p-header__list {
-				display: flex;
-				align-items: center;
-				@include mq(sp) {
-					display: flex;
-					flex-direction: column;
-					position: relative;
-					top: 467px;
-					width: 100vw;
-					height: 100vh;
-					background-color: grey;
-					align-items: center;
-					opacity: 0;
-					visibility: hidden;
-					transition: all 0.5s;
-
-					&.open {
-						opacity: 0.97;
-						visibility: visible;
-						transition: all 0.5s;
-					}
-				}
-				.p-header__item {
-					position: relative;
-					display: block;
-					a {
-						color: #fff;
-						font-size: 18px;
-						transition-duration: 0.3s;
-
-						&:hover {
-							text-shadow: #eee 1px 1px 10px, #fff -1px 1px 10px,
-								black 1px -1px 10px, #fff -1px -1px 10px;
-							cursor: pointer;
-							transition-duration: 0.3s;
-						}
-						@include mq(sp) {
-							font-size: 30px;
-						}
-					}
-				}
-				> .p-header__item + .p-header__item {
-					margin-left: 40px;
-					@include mq(sp) {
-						margin: 50px 0 0;
-					}
-				}
-				.p-header__item:nth-child(1) {
-					@include mq(sp) {
-						margin-top: 100px;
-					}
-				}
-			}
+	}
+	> .p-header__item + .p-header__item {
+		margin-left: 40px;
+		@include mq(sp) {
+			margin: 50px 0 0;
 		}
 	}
 }
 
 .sub-menu {
-	// display: none;
+	display: none;
 	position: absolute;
-	background-color: #993366;
+	background-color: $main-color;
 	top: 45px;
 	width: 100%;
-	border: 3px solid #993366;
+	border: 3px solid $main-color;
+	@include mq(tab) {
+		position: relative;
+		top: 0;
+		background-color: unset;
+		border: unset;
+	}
+	//ドロップダウンメニューの項目
 	.p-header__item {
 		margin: 20px;
+		border-bottom: 2px solid #ebe0ce;
+		@include mq(tab) {
+			margin: 30px 20px;
+		}
+		a {
+			display: block;
+			padding: 2px;
+		}
 	}
 	&::before {
 		content: "";
-		border: solid 3px #fff;
+		border: solid 3px #ebe0ce;
 		position: absolute;
 		width: calc(100% - 6px);
 		height: calc(100% - 6px);
+		@include mq(tab) {
+			content: none;
+		}
 	}
 }
 
-// .sub-menu.open {
-// 	display: flex;
-// }
+.sub-menu.is-active {
+	display: block;
+}
 
 @keyframes show {
 	from {

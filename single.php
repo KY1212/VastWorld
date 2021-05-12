@@ -6,7 +6,7 @@ get_header(); ?>
 <main class="l-main">
 
   <div class="p-container__inner">
-    <div class="p-container__postWrap">
+    <div class="p-container__postWrap single">
       <?php if(have_posts()): while(have_posts()): the_post(); ?>
       <div class="p-single__post">
         <a>

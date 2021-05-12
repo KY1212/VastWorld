@@ -1,16 +1,16 @@
 <?php get_header(); ?>
 <main class="l-main">
-	<div class="p-container__inner">
-		<div class="p-container">
-			<h3 class="headingTop">
+  <div class="p-container__inner">
+    <div class="p-container">
+      <p class="headingTop">
         <?php
           global $wp_query;
           $total_results = $wp_query->found_posts;
           $search_query = get_search_query();
         ?>
         <?php echo $search_query; ?>の検索結果<span>（<?php echo $total_results; ?>件）</span>
-			</h3>
-			<div class="p-container__postWrap margin">
+			</p>
+      <div class="p-container__postWrap margin">
         <?php if( $total_results >0 ): ?>
         <?php
           if (have_posts()):
@@ -46,6 +46,6 @@
       </div>
     </div>
     <?php get_sidebar(); ?>
-	</div>
+  </div>
 </main>
-	<?php get_footer(); ?>
+<?php get_footer(); ?>

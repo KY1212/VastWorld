@@ -63,7 +63,14 @@ header.is-sticky {
 	//親となるメニュー項目
 	.p-header__item {
 		position: relative;
-		top: 0;
+		// top: 0;
+		height: 70px;
+		display: flex;
+		align-items: center;
+		@include mq(tab) {
+			justify-content: center;
+			flex-direction: column;
+		}
 		a {
 			color: #ebe0ce;
 			font-size: 18px;
@@ -91,9 +98,10 @@ header.is-sticky {
 	display: none;
 	position: absolute;
 	background-color: $main-color;
-	top: 45px;
-	width: 100%;
+	top: 70px;
+	min-width: 100%;
 	border: 3px solid $main-color;
+	white-space: nowrap;
 	@include mq(tab) {
 		position: relative;
 		top: 0;
@@ -103,6 +111,7 @@ header.is-sticky {
 	//ドロップダウンメニューの項目
 	.p-header__item {
 		margin: 20px;
+		height: 25px;
 		border-bottom: 2px solid #ebe0ce;
 		@include mq(tab) {
 			margin: 30px 20px;

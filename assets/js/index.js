@@ -3,25 +3,44 @@ jQuery(function ($) {
   function toggleAction() {
     const $hamburger = $(".hamburger");
     const $list = $('.p-header__list');
-    const $headerItem = $('.p-header__item > a');
+    const $headerItem = $list.find($('.p-header__item'));
+    const $subMenu = $('.sub-menu');
+
     function toggleActionHamburger() {
       $hamburger.toggleClass("active");
       $list.toggleClass("open");
-      // $("html").toggleClass("is-fixed");  // 背景固定解除！
-      // $('body').scrollTop();
     }
-    function toggleActionSubMenu() {
-      $headerItem.next().removeClass('is-active');
-      $(this).next().addClass('is-active');
+    function mouseenterSubMenu() {
+      // $headerItem.find("a").next().removeClass('is-active');
+      // $(this).find("a").next().addClass('is-active');
+      // $subMenu.removeClass('is-active');
+      $(this).find($subMenu).addClass('is-active');
+
+    }
+    function mouseleaveSubMenu() {
+      // $headerItem.find("a").next().removeClass('is-active');
+      // $(this).find("a").next().addClass('is-active');
+      $(this).find($subMenu).removeClass('is-active');
+      // $(this).addClass('is-active');
+
     }
     function toggleActionOutOfArea(e) {
-      if (!$(e.target).closest($headerItem.next()).length) {
-        $headerItem.next().removeClass('is-active');
+      if (!$(e.target).closest($headerItem.find("a").next()).length) {
+        $headerItem.find("a").next().removeClass('is-active');
       }
     }
     $hamburger.on("click", toggleActionHamburger);
-    $headerItem.on("click", toggleActionSubMenu);
+    $headerItem.on("mouseenter", mouseenterSubMenu);
+    $headerItem.on("mouseleave", mouseleaveSubMenu);
     $(document).on("click", toggleActionOutOfArea);
+  }
+
+  function addFontawesomeToMenuItems() {
+    const subMenu = $('.p-header__list > .p-header__item > .sub-menu');
+    subMenu.each(function () {
+      $(this).parent().find('a').append('<i class="fas fa-angle-down"></i>');
+    });
+    subMenu.find('a > i').remove('i');
   }
 
   jQuery(function ($) {
@@ -30,7 +49,7 @@ jQuery(function ($) {
     let toc = '';
     let currentlevel = 0;
     const tocCount = jQuery("h2").length;
-    if (tocCount >= 3) {
+    if (tocCount >= 2) {
       jQuery(".p-container__postWrap h2,.p-container__postWrap h3", this).each(function () {
         this.id = "toc-" + idcount;
         idcount++;
@@ -97,13 +116,7 @@ jQuery(function ($) {
   }
 
 
-  function addFontawesomeToMenuItems() {
-    const subMenu = $('.p-header__list > .p-header__item > .sub-menu');
-    subMenu.each(function () {
-      $(this).parent().find('a').append('<i class="fas fa-angle-down"></i>');
-    });
-    subMenu.find('a > i').remove('i');
-  }
+
 
   function init() {
     toggleAction();

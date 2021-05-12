@@ -14,7 +14,6 @@ img {
 a {
 	text-decoration: none;
 	list-style: none;
-
 	color: #333;
 }
 
@@ -26,11 +25,34 @@ a {
 	text-decoration: none;
 }
 
+.submit {
+	margin-top: 30px;
+	width: 180px;
+	height: 40px;
+	background-color: #993366;
+	color: #fff;
+	border: 2px solid #000;
+	border-radius: 10px;
+	box-shadow: 0;
+	font-size: 20px;
+	font-weight: bold;
+	letter-spacing: 5px;
+	transition: 0.3s;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
 //メインカラー
 $main-color: #8e1a47;
 $main-color-text: #333;
 //ヘッダーの背景色
 $header-color: #ebe0ce;
+
+/* ==============
+記事の見出し
+============== */
+$band-color: #f2ecde;
 
 /* ==============
 サイドバー関連
@@ -49,3 +71,4 @@ $font-weight-medium: 500;
 $font-weight-bold: 700;
 $font-weight-black: 900;
 $font-family-sans: Noto Sans JP;
+$font-M-PLUS: "M PLUS Rounded 1c", sans-serif;

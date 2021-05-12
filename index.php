@@ -57,7 +57,9 @@
         <?php endwhile; endif; wp_reset_postdata(); ?>
       </div>
       <div class="pagination">
-        <?php pagination($the_query->max_num_pages);?>
+        <a href="<?php echo home_url(); ?>/article" class="btn">
+          Read More
+        </a>
       </div>
     </div>
     <?php get_sidebar(); ?>

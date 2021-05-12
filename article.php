@@ -1,15 +1,23 @@
+<?php
+/*
+Template Name: article
+*/
+?>
 <?php get_header(); ?>
 <main class="l-main">
   <div class="p-container__inner">
     <div class="p-container">
-      <h3 class="headingTop">
-				<?php the_archive_title(); ?>
-			</h3>
+      <p class="headingTop">
+				記事一覧
+			</p>
       <div class="p-container__postWrap margin">
         <?php
-					if (have_posts()):
-					while (have_posts()):the_post();
-				?>
+      $the_query = sub_loop(8,$paged);
+      $counter = '';
+      if ($the_query->have_posts()) :
+      while ($the_query->have_posts()) : $the_query->the_post();
+        ++$counter;
+    ?>
         <div class="p-container__post">
           <a href="<?php the_permalink(); ?>">
             <?php

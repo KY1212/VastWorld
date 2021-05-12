@@ -6,6 +6,8 @@
   <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet" />
   <link rel="preconnect" href="https://fonts.gstatic.com">
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;500;700;900&display=swap" rel="stylesheet">
   <title>
     <?php bloginfo('name'); wp_title('|',true,'left'); ?>
 </title>
@@ -19,6 +21,8 @@
           <h1 class="p-header__logo">
 							<img src="<?php echo get_template_directory_uri(); ?>/assets/img/header4.png" alt="title画像挿入" />
 						</h1>
+          <p>テーマ改修中につきレイアウト崩れを起こしています。</p>
+          <p>記事が見にくくてすみません。。<br>もう少しで終わりますので少々お待ちください。。</p>
         </a>
       </div>
       <nav class="p-header__nav">

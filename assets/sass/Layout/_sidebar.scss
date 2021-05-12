@@ -35,18 +35,18 @@ section + section {
 		height: 190px;
 		object-fit: cover;
 	}
-	.p-sidebar__name {
-		display: flex;
-		justify-content: center;
-		font-size: 18px;
-		margin-top: 20px;
-	}
-	.p-sidebar__discription {
-		display: flex;
-		justify-content: center;
-		font-size: 18px;
-		margin-top: 20px;
-	}
+}
+.p-sidebar__name {
+	display: flex;
+	justify-content: center;
+	font-size: 18px;
+	margin-top: 20px;
+}
+.p-sidebar__discription {
+	display: flex;
+	justify-content: center;
+	font-size: 18px;
+	margin-top: 20px;
 }
 
 .p-sidebar__pickup {
@@ -80,7 +80,6 @@ section + section {
 }
 
 .p-sidebar__discription {
-	padding: 10px 0;
 	font-size: 18px;
 }
 

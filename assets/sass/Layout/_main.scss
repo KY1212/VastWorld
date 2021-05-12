@@ -12,16 +12,19 @@
 	color: #333;
 	background-color: #fff;
 	width: 366px;
+	& > a {
+		display: block;
+		padding: 20px 20px 0;
+		.p-pickup__image__thumbnails {
+			color: #fff;
+			padding: calc(132 / 300 * 100%) 20px 0;
+			background-position: center center;
+			background-size: cover;
+		}
+	}
 	@include mq(sp) {
 		width: 100%;
 	}
-}
-
-.p-pickup__image__thumbnails {
-	color: #fff;
-	padding: calc(132 / 300 * 100%) 20px 0;
-	background-position: center center;
-	background-size: cover;
 }
 
 .p-pickup__title {
@@ -89,7 +92,6 @@
 
 .p-container__date {
 	display: flex;
-	align-items: center;
 	justify-content: center;
 	font-size: 14px;
 }
@@ -98,12 +100,16 @@
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	font-size: 20px;
-	height: 48px;
+	font-size: 18px;
+	height: 90px;
 }
 .p-container__discription {
 	padding: 20px;
 	font-size: 16px;
+}
+
+span.my_bold {
+	font-weight: 700;
 }
 
 .p-container__post:nth-child(2n) {
@@ -116,9 +122,16 @@
 	margin-top: 15px;
 }
 /*============./postWrap============*/
+.single {
+	height: 100%;
+}
+
 .p-single__post {
 	background-color: #fff;
 	width: 750px;
+	@include mq(tab) {
+		width: 100%;
+	}
 	& > a {
 		display: block;
 		padding: 20px 20px 0;
@@ -129,4 +142,44 @@
 			background-size: cover;
 		}
 	}
+	h2 {
+		position: relative;
+		padding: 0.5em;
+		background: #ebe0ce;
+		color: #333;
+		font-size: 20px;
+		font-weight: $font-weight-bold;
+		margin-bottom: 20px;
+	}
+	h2::before {
+		position: absolute;
+		content: "";
+		top: 100%;
+		left: 0;
+		border: none;
+		border-bottom: solid 15px transparent;
+		border-right: solid 20px rgb(149, 158, 155);
+	}
+	h2:not(:first-child) {
+		margin-top: 40px;
+	}
+	h3 {
+		padding: 0.4em 0.5em; /*文字の上下 左右の余白*/
+		color: #494949; /*文字色*/
+		background: $band-color; /*背景色*/
+		border-left: solid 5px $main-color; /*左線*/
+		border-bottom: solid 3px #d7d7d7; /*下線*/
+		margin: 20px 15px 20px 0;
+		font-weight: $font-weight-bold;
+	}
+}
+
+.wp-embedded-content {
+	width: 100%;
+}
+
+.p-404error {
+	width: 100%;
+	background-color: #fff;
+	padding: 20px;
 }

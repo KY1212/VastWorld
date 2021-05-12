@@ -3,12 +3,16 @@ footer {
 	margin-top: 50px;
 	padding: 20px;
 	background-color: #333;
-	color: #fff;
 	.l-footer__inner {
-		.c-copylight {
-			display: flex;
-			justify-content: center;
-			align-items: center;
+		p {
+			text-align: center;
+			color: #fff;
+			a {
+				color: #fff;
+			}
+		}
+		p + p {
+			margin-top: 10px;
 		}
 	}
 }

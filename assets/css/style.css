@@ -282,7 +282,12 @@ i + i {
   width: 33px;
   height: 31px;
   cursor: pointer;
-  margin-left: 10px;
+  margin-left: 20px;
+}
+@media screen and (max-width: 768px) {
+  .hamburger {
+    margin: 0 40px 0;
+  }
 }
 
 .hamburger span {
@@ -290,7 +295,7 @@ i + i {
   left: 0;
   width: 100%;
   height: 4px;
-  background-color: #fff;
+  background-color: #ebe0ce;
   border-radius: 4px;
 }
 
@@ -366,7 +371,7 @@ i + i {
 .p-toc__tocWrap {
   border: 3px solid #8e1a47;
   border-radius: 2px;
-  margin-top: 15px;
+  margin: 15px 0 0;
   padding-bottom: 15px;
 }
 .p-toc__tocWrap .p-index {
@@ -442,8 +447,12 @@ header.is-sticky {
   display: flex;
   justify-content: center;
   padding: 20px 0;
-  z-index: 9999;
   background-color: #ebe0ce;
+}
+@media screen and (max-width: 768px) {
+  .p-header__title {
+    display: none;
+  }
 }
 .p-header__title a .p-header__logo {
   max-width: 400px;
@@ -454,10 +463,15 @@ header.is-sticky {
   width: 100%;
   height: 70px;
   display: flex;
-  justify-content: center;
   align-items: center;
-  z-index: 9998;
+  justify-content: center;
+  z-index: 9999;
   color: #ebe0ce;
+}
+@media screen and (max-width: 768px) {
+  .p-header__nav {
+    justify-content: flex-end;
+  }
 }
 
 .p-header__list {
@@ -469,15 +483,13 @@ header.is-sticky {
     display: flex;
     flex-direction: column;
     position: relative;
-    top: 528px;
+    top: 314px;
     width: 100vw;
     height: 100vh;
     background-color: grey;
-    align-items: center;
     opacity: 0;
     visibility: hidden;
     transition: all 0.5s;
-    padding: 60px 0;
   }
   .p-header__list.open {
     opacity: 0.97;
@@ -487,14 +499,20 @@ header.is-sticky {
 }
 .p-header__list .p-header__item {
   position: relative;
-  height: 70px;
   display: flex;
   align-items: center;
+  height: 70px;
 }
 @media screen and (max-width: 1025px) {
   .p-header__list .p-header__item {
     justify-content: center;
     flex-direction: column;
+  }
+}
+@media screen and (max-width: 768px) {
+  .p-header__list .p-header__item {
+    height: unset;
+    margin-top: 60px;
   }
 }
 .p-header__list .p-header__item a {
@@ -509,7 +527,7 @@ header.is-sticky {
 }
 @media screen and (max-width: 768px) {
   .p-header__list .p-header__item a {
-    font-size: 35px;
+    font-size: 24px;
   }
 }
 .p-header__list > .p-header__item + .p-header__item {
@@ -585,11 +603,28 @@ html.is-fixed body {
 .p-header__spList {
   display: none;
   position: absolute;
+  z-index: 9999;
 }
 @media screen and (max-width: 768px) {
   .p-header__spList {
     display: flex;
   }
+}
+
+.p-header__spTitle {
+  display: none;
+}
+@media screen and (max-width: 768px) {
+  .p-header__spTitle {
+    display: flex;
+    position: absolute;
+    left: 20px;
+    font-size: 24px;
+    letter-spacing: 7px;
+  }
+}
+.p-header__spTitle a {
+  color: #ebe0ce;
 }
 
 /*============./header============*/
@@ -603,6 +638,11 @@ html.is-fixed body {
 @media screen and (max-width: 1025px) {
   .p-pickup__inner {
     max-width: 1100px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .p-pickup__inner {
+    width: 100%;
   }
 }
 @media screen and (max-width: 768px) {
@@ -663,6 +703,11 @@ html.is-fixed body {
     max-width: 1100px;
   }
 }
+@media screen and (max-width: 768px) {
+  .p-container__inner {
+    width: 100%;
+  }
+}
 @media screen and (max-width: 1025px) {
   .p-container__inner {
     flex-direction: column;
@@ -688,6 +733,11 @@ html.is-fixed body {
 .p-container__postWrap {
   display: flex;
   flex-wrap: wrap;
+}
+@media screen and (max-width: 768px) {
+  .p-container__postWrap {
+    display: unset;
+  }
 }
 
 .p-container__post {
@@ -726,8 +776,9 @@ html.is-fixed body {
 }
 
 .p-container__discription {
-  padding: 20px;
+  padding: 20px 0 20px;
   font-size: 16px;
+  overflow-wrap: break-word;
 }
 
 span.my_bold {
@@ -754,18 +805,15 @@ span.my_bold {
 
 .p-single__post {
   background-color: #fff;
-  width: 750px;
+  max-width: 750px;
+  padding: 10px;
 }
 @media screen and (max-width: 1025px) {
   .p-single__post {
-    width: 100%;
+    max-width: 100%;
   }
 }
-.p-single__post > a {
-  display: block;
-  padding: 20px 20px 0;
-}
-.p-single__post > a .p-pickup__image__sumbnails {
+.p-single__post .p-pickup__image__sumbnails {
   color: #fff;
   padding: calc(172 / 300 * 100%) 20px 0;
   background-position: center center;
@@ -803,7 +851,7 @@ span.my_bold {
   /*左線*/
   border-bottom: solid 3px #d7d7d7;
   /*下線*/
-  margin: 20px 15px 20px 0;
+  margin: 20px 0;
   font-weight: 700;
 }
 
@@ -887,7 +935,7 @@ section + section {
 }
 
 .p-sidebar__post {
-  margin: 20px auto 0;
+  margin: 20px;
   width: 90%;
 }
 .p-sidebar__post a {

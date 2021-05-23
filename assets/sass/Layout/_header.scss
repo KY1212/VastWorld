@@ -18,8 +18,10 @@ header.is-sticky {
 	display: flex;
 	justify-content: center;
 	padding: 20px 0;
-	z-index: 9999;
 	background-color: $header-color;
+	@include mq(sp) {
+		display: none;
+	}
 	a {
 		.p-header__logo {
 			max-width: 400px;
@@ -32,10 +34,13 @@ header.is-sticky {
 	width: 100%;
 	height: 70px;
 	display: flex;
-	justify-content: center;
 	align-items: center;
-	z-index: 9998;
+	justify-content: center;
+	z-index: 9999;
 	color: #ebe0ce;
+	@include mq(sp) {
+		justify-content: flex-end;
+	}
 }
 
 .p-header__list {
@@ -45,15 +50,13 @@ header.is-sticky {
 		display: flex;
 		flex-direction: column;
 		position: relative;
-		top: 528px;
+		top: 314px;
 		width: 100vw;
 		height: 100vh;
 		background-color: grey;
-		align-items: center;
 		opacity: 0;
 		visibility: hidden;
 		transition: all 0.5s;
-		padding: 60px 0;
 		&.open {
 			opacity: 0.97;
 			visibility: visible;
@@ -63,13 +66,16 @@ header.is-sticky {
 	//親となるメニュー項目
 	.p-header__item {
 		position: relative;
-		// top: 0;
-		height: 70px;
 		display: flex;
 		align-items: center;
+		height: 70px;
 		@include mq(tab) {
 			justify-content: center;
 			flex-direction: column;
+		}
+		@include mq(sp) {
+			height: unset;
+			margin-top: 60px;
 		}
 		a {
 			color: #ebe0ce;
@@ -82,7 +88,7 @@ header.is-sticky {
 				transition-duration: 0.3s;
 			}
 			@include mq(sp) {
-				font-size: 35px;
+				font-size: 24px;
 			}
 		}
 	}
@@ -154,9 +160,23 @@ html.is-fixed body {
 .p-header__spList {
 	display: none;
 	position: absolute;
+	z-index: 9999;
 	@include mq(sp) {
 		display: flex;
 	}
 }
 
+.p-header__spTitle {
+	display: none;
+	@include mq(sp) {
+		display: flex;
+		position: absolute;
+		left: 20px;
+		font-size: 24px;
+		letter-spacing: 7px;
+	}
+	a {
+		color: #ebe0ce;
+	}
+}
 /*============./header============*/

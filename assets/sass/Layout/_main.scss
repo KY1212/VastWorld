@@ -70,6 +70,9 @@
 .p-container__postWrap {
 	display: flex;
 	flex-wrap: wrap;
+	@include mq(sp) {
+		display: unset;
+	}
 }
 
 .p-container__post {
@@ -104,8 +107,9 @@
 	height: 90px;
 }
 .p-container__discription {
-	padding: 20px;
+	padding: 20px 0 20px;
 	font-size: 16px;
+	overflow-wrap: break-word;
 }
 
 span.my_bold {
@@ -128,19 +132,16 @@ span.my_bold {
 
 .p-single__post {
 	background-color: #fff;
-	width: 750px;
+	max-width: 750px;
+	padding: 10px;
 	@include mq(tab) {
-		width: 100%;
+		max-width: 100%;
 	}
-	& > a {
-		display: block;
-		padding: 20px 20px 0;
-		.p-pickup__image__sumbnails {
-			color: #fff;
-			padding: calc(172 / 300 * 100%) 20px 0;
-			background-position: center center;
-			background-size: cover;
-		}
+	.p-pickup__image__sumbnails {
+		color: #fff;
+		padding: calc(172 / 300 * 100%) 20px 0;
+		background-position: center center;
+		background-size: cover;
 	}
 	h2 {
 		position: relative;
@@ -169,7 +170,7 @@ span.my_bold {
 		background: $band-color; /*背景色*/
 		border-left: solid 5px $main-color; /*左線*/
 		border-bottom: solid 3px #d7d7d7; /*下線*/
-		margin: 20px 15px 20px 0;
+		margin: 20px 0;
 		font-weight: $font-weight-bold;
 	}
 }

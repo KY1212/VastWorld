@@ -11,6 +11,9 @@
 	@include mq(tab) {
 		max-width: 1100px;
 	}
+	@include mq(sp) {
+		width: 100%;
+	}
 }
 
 $breakpoints: (

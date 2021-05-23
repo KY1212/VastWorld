@@ -5,34 +5,39 @@ jQuery(function ($) {
     const $list = $('.p-header__list');
     const $headerItem = $list.find($('.p-header__item'));
     const $subMenu = $('.sub-menu');
+    const $win = $(window);
 
     function toggleActionHamburger() {
       $hamburger.toggleClass("active");
       $list.toggleClass("open");
     }
-    function mouseenterSubMenu() {
-      // $headerItem.find("a").next().removeClass('is-active');
-      // $(this).find("a").next().addClass('is-active');
-      // $subMenu.removeClass('is-active');
-      $(this).find($subMenu).addClass('is-active');
+    function toggleSubMenu() {
+      $(!(this)).find($subMenu).removeClass("is-active");
+      $(this).find($subMenu).toggleClass("is-active");
+    }
+    function removeSubMenu() {
+      $subMenu.removeClass("is-active");
+    }
 
+    function mouseenterSubMenu() {
+      $(this).find($subMenu).addClass('is-active');
     }
     function mouseleaveSubMenu() {
-      // $headerItem.find("a").next().removeClass('is-active');
-      // $(this).find("a").next().addClass('is-active');
       $(this).find($subMenu).removeClass('is-active');
-      // $(this).addClass('is-active');
+    }
 
-    }
-    function toggleActionOutOfArea(e) {
-      if (!$(e.target).closest($headerItem.find("a").next()).length) {
-        $headerItem.find("a").next().removeClass('is-active');
-      }
-    }
     $hamburger.on("click", toggleActionHamburger);
-    $headerItem.on("mouseenter", mouseenterSubMenu);
-    $headerItem.on("mouseleave", mouseleaveSubMenu);
-    $(document).on("click", toggleActionOutOfArea);
+
+    $win.on('load resize', function () {
+      if (window.matchMedia('(min-width: 767px)').matches) {
+        $headerItem.on("mouseenter", mouseenterSubMenu);
+        $headerItem.on("mouseleave", mouseleaveSubMenu);
+      } else {
+        $headerItem.on("click", toggleSubMenu);
+        //いるかこれ？？
+        $(!($headerItem)).on("click", removeSubMenu);
+      }
+    });
   }
 
   function addFontawesomeToMenuItems() {
@@ -105,11 +110,12 @@ jQuery(function ($) {
 
   function index() {
     //ページ内リンク#非表示。加速スクロール
+    var headerHight = $("header").height();
     $('a[href^=#]').click(function () {
-      const speed = 300,
-        href = $(this).attr("href"),
-        target = $(href == "#" || href == "" ? 'html' : href),
-        position = target.offset().top;
+      const speed = 300;
+      const href = $(this).attr("href");
+      const target = $(href == "#" || href == "" ? 'html' : href);
+      const position = target.offset().top - headerHight;
       $("html, body").animate({ scrollTop: position }, speed, "swing");
       return false;
     });

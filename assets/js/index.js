@@ -7,19 +7,23 @@ jQuery(function ($) {
     const $headerItem = $list.find($('.p-header__item'));
     const $spHeaderItem = $spList.find($('.p-header__item'));
     const $subMenu = $('.sub-menu');
+    const $win = $(window);
 
+    let scrollPos;
     function toggleActionHamburger() {
-      let scrollPos;//グローバルで初期かしておかないと上にもどっちゃう
       $hamburger.toggleClass("active");
       if($('body').hasClass('fix')){
-        $('body').removeClass('fix').css('top', 0 + 'px');
+        $('body').removeClass('fix').css('top',0 + 'px');
         $spList.removeClass('fix').css('top',0 + 'px');
-        window.scrollTo( 0 , scrollPos );//初期化
+        window.scrollTo(0, scrollPos);//初期化
       }else{
         scrollPos = $(window).scrollTop();//現在のスクロール位置
-        $('body').addClass('fix').css('top', -scrollPos + 'px');
-        $spList.addClass('fix').css('top',-scrollPos + 'px');
-        }
+        $('body').addClass('fix').css('top',-scrollPos + 'px');
+        $spList.addClass('fix').css('top',0 + 'px');
+
+
+      }
+      console.log(scrollPos);
     }
 
     function toggleSubMenu() {
@@ -34,8 +38,6 @@ jQuery(function ($) {
     function mouseleaveSubMenu() {
       $(this).find($subMenu).removeClass('is-active');
     }
-
-    const $win = $(window);
 
     $win.on('load resize', function () {
       if (window.matchMedia('(min-width: 767px)').matches) {

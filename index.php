@@ -56,7 +56,7 @@
         </div>
         <?php endwhile; endif; wp_reset_postdata(); ?>
       </div>
-      <div class="pagination">
+      <div class="readmore">
         <a href="<?php echo home_url(); ?>/article" class="btn">
           Read More
         </a>

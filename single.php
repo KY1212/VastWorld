@@ -20,7 +20,14 @@ get_header(); ?>
           <div class="p-toc__tocWrap"></div>
           <div class="p-container__discription"><?php the_content(); ?></div>
         </a>
-
+        <div>
+          <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- Vastworld.org -->
+          <ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-9103834502093898" data-ad-slot="7710276318" data-ad-format="auto" data-full-width-responsive="true"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+        </div>
       </div>
     </div>
     <?php endwhile; endif; ?>

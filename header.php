@@ -14,6 +14,20 @@
   <?php wp_head(); ?>
 </head>
 <body>
+  <ul class="p-header__spList">
+    <?php
+			wp_nav_menu(array(
+			'theme_location' => 'global',
+				'menu_class' => 'p-header__list',
+				'container' => false
+			));
+		?>
+  </ul>
+  <div class="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
   <header class="l-header">
     <div class="p-header__inner">
       <div class="p-header__title">
@@ -42,25 +56,7 @@
             </h1>
           </a>
         </div>
-        <ul class="p-header__spList">
-          <!-- <p class="p-header__item">MENU</p> -->
-          <div class="hamburger">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
-        </ul>
+
       </nav>
-      <!-- <div class="menu">
-        <ul>
-          <li class="p-header__item"><a href="">
-              <i class="fas fa-file-code"></i>
-              Prrograming
-            </a></li>
-          <li class="p-header__item"><a href="">Diary</a></li>
-          <li class="p-header__item"><a href="">Thought</a></li>
-          <li class="p-header__item"><a href="">Contact</a></li>
-        </ul>
-      </div> -->
     </div>
   </header>

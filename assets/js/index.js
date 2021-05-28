@@ -3,22 +3,31 @@ jQuery(function ($) {
   function toggleAction() {
     const $hamburger = $(".hamburger");
     const $list = $('.p-header__list');
+    const $spList = $('.p-header__spList');
     const $headerItem = $list.find($('.p-header__item'));
+    const $spHeaderItem = $spList.find($('.p-header__item'));
     const $subMenu = $('.sub-menu');
-    const $win = $(window);
 
     function toggleActionHamburger() {
+      let scrollPos;//グローバルで初期かしておかないと上にもどっちゃう
       $hamburger.toggleClass("active");
-      $list.toggleClass("open");
-    }
-    function toggleSubMenu() {
-      $(!(this)).find($subMenu).removeClass("is-active");
-      $(this).find($subMenu).toggleClass("is-active");
-    }
-    function removeSubMenu() {
-      $subMenu.removeClass("is-active");
+      if($('body').hasClass('fix')){
+        $('body').removeClass('fix').css('top', 0 + 'px');
+        $spList.removeClass('fix').css('top',0 + 'px');
+        window.scrollTo( 0 , scrollPos );//初期化
+      }else{
+        scrollPos = $(window).scrollTop();//現在のスクロール位置
+        $('body').addClass('fix').css('top', -scrollPos + 'px');
+        $spList.addClass('fix').css('top',-scrollPos + 'px');
+        }
     }
 
+    function toggleSubMenu() {
+      $(this).find($subMenu).toggleClass('is-active');
+    }
+    function toggleSpSubMenu() {
+      $(this).find($subMenu).toggleClass('is-active');
+    }
     function mouseenterSubMenu() {
       $(this).find($subMenu).addClass('is-active');
     }
@@ -26,16 +35,16 @@ jQuery(function ($) {
       $(this).find($subMenu).removeClass('is-active');
     }
 
-    $hamburger.on("click", toggleActionHamburger);
+    const $win = $(window);
 
     $win.on('load resize', function () {
       if (window.matchMedia('(min-width: 767px)').matches) {
         $headerItem.on("mouseenter", mouseenterSubMenu);
         $headerItem.on("mouseleave", mouseleaveSubMenu);
       } else {
+        $hamburger.on("click", toggleActionHamburger);
         $headerItem.on("click", toggleSubMenu);
-        //いるかこれ？？
-        $(!($headerItem)).on("click", removeSubMenu);
+        $spHeaderItem.on("click", toggleSpSubMenu);
       }
     });
   }

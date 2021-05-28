@@ -39,6 +39,31 @@ i + i {
 	}
 }
 
+.readmore {
+	margin-top: 70px;
+	/* text-align: center; */
+	height: 60px;
+	display: flex;
+	justify-content: center;
+	@include mq(tab) {
+		margin-top: 30px;
+	}
+	a {
+		margin: 0 60px;
+		padding: 10px 30px;
+		border: 10px double #8e1a47;
+		color: #8e1a47;
+		background-color: #f2ecde;
+		// border-radius: 5px;
+		transition-duration: 0.15s;
+		&:hover {
+			border: 10px double #f2ecde;
+			color: #f2ecde;
+			background-color: #8e1a47;
+		}
+	}
+}
+
 .pagination {
 	margin: 70px auto 0;
 	.list {
@@ -86,13 +111,19 @@ i + i {
 }
 
 .hamburger {
-	position: relative;
+	display: none;
+	position: fixed;
 	width: 33px;
 	height: 31px;
 	cursor: pointer;
 	margin-left: 20px;
+	z-index: 99999;
+	right: 20px;
+	top: 20px;
+	margin-top: 20px;
 	@include mq(sp) {
-		margin: 0 40px 0;
+		display: block;
+		margin: 0;
 	}
 }
 .hamburger span {
@@ -105,9 +136,11 @@ i + i {
 }
 .hamburger,
 .hamburger span {
-	display: inline-block;
 	transition: all 0.5s;
 	box-sizing: border-box;
+	@include mq(sp) {
+		display: inline-block;
+	}
 }
 .hamburger span:nth-of-type(1) {
 	top: 0;

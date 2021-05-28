@@ -117,15 +117,21 @@ header.is-sticky {
 	.p-header__item {
 		margin: 20px;
 		height: 25px;
-		border-bottom: 2px solid #ebe0ce;
+		border-bottom: 2px dashed #ebe0ce;
+		padding-bottom: 5px;
 		@include mq(tab) {
-			margin: 30px 20px;
+			padding: 10px 10px;
+			margin: 0 50px;
 		}
 		a {
 			display: block;
 			padding: 2px;
 		}
 	}
+	.p-header__item:first-child {
+		margin-top: 15px;
+	}
+
 	&::before {
 		content: "";
 		border: solid 3px #ebe0ce;
@@ -166,7 +172,8 @@ body.fix {
 	height: 100%;
 	width: 100%;
 	padding-top: 100px;
-	overflow-y: scroll;
+	overflow: scroll;
+	// overflow-y: scroll;
 	position: fixed;
 	background-color: #333;
 	opacity: 0.96;
@@ -179,7 +186,10 @@ body.fix {
 			color: #ebe0ce;
 		}
 	}
-	.p-header__item + .p-header__item {
+	> .p-header__item:last-child {
+		margin-bottom: 240px;
+	}
+	> .p-header__item + .p-header__item {
 		margin-top: 50px;
 	}
 }

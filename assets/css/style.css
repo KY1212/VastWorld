@@ -599,16 +599,21 @@ header.is-sticky {
 .sub-menu .p-header__item {
   margin: 20px;
   height: 25px;
-  border-bottom: 2px solid #ebe0ce;
+  border-bottom: 2px dashed #ebe0ce;
+  padding-bottom: 5px;
 }
 @media screen and (max-width: 1025px) {
   .sub-menu .p-header__item {
-    margin: 30px 20px;
+    padding: 10px 10px;
+    margin: 0 50px;
   }
 }
 .sub-menu .p-header__item a {
   display: block;
   padding: 2px;
+}
+.sub-menu .p-header__item:first-child {
+  margin-top: 15px;
 }
 .sub-menu::before {
   content: "";
@@ -651,7 +656,7 @@ body.fix {
   height: 100%;
   width: 100%;
   padding-top: 100px;
-  overflow-y: scroll;
+  overflow: scroll;
   position: fixed;
   background-color: #333;
   opacity: 0.96;
@@ -665,7 +670,10 @@ body.fix {
 .p-header__spList .p-header__item a {
   color: #ebe0ce;
 }
-.p-header__spList .p-header__item + .p-header__item {
+.p-header__spList > .p-header__item:last-child {
+  margin-bottom: 240px;
+}
+.p-header__spList > .p-header__item + .p-header__item {
   margin-top: 50px;
 }
 

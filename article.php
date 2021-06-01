@@ -7,9 +7,9 @@ Template Name: article
 <main class="l-main">
   <div class="p-container__inner">
     <div class="p-container">
-      <p class="headingTop">
+      <h1 class="headingTop">
 				記事一覧
-			</p>
+			</h1>
       <div class="p-container__postWrap margin">
         <?php
       $the_query = sub_loop(8,$paged);

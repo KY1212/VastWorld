@@ -2,9 +2,9 @@
 <main class="l-main">
   <div class="p-container__inner">
     <div class="p-container">
-      <h3 class="headingTop">
+      <h1 class="headingTop">
 				<?php the_archive_title(); ?>
-			</h3>
+			</h1>
       <div class="p-container__postWrap margin">
         <?php
 					if (have_posts()):

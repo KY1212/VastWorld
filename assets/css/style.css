@@ -911,6 +911,7 @@ body.fix {
   padding: 20px 0 20px;
   font-size: 16px;
   overflow-wrap: break-word;
+  line-height: 1.8;
 }
 
 span.my_bold {
@@ -1123,13 +1124,12 @@ section + section {
   border: 2px solid #8e1a47;
   border-radius: 3px;
   height: 50px;
-  width: 265px;
   overflow: hidden;
 }
 .p-search__container input[type="text"] {
   border: none;
-  width: 200px;
   height: 50px;
+  width: 100%;
   padding-left: 10px;
 }
 .p-search__container input[type="text"]:focus {
